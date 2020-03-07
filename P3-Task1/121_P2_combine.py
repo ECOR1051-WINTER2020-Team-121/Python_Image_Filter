@@ -1,3 +1,9 @@
+# ISSUE RESOLVED. SOLUTION: Make sure to create a
+# copy of an image in each function.
+
+# Idea for testing: compare value addition with
+# actual result value?
+
 import Cimpl
 
 
@@ -36,6 +42,7 @@ def red_channel(img):
     every pixel's channels except for
     red have been set to 0.
     """
+    img = Cimpl.copy(img)
     hgt = Cimpl.get_height(img)
     wth = Cimpl.get_width(img)
 
@@ -54,6 +61,7 @@ def blue_channel(img):
     every pixel's channels except for
     red have been set to 0.
     """
+    img = Cimpl.copy(img)   # test to see if this resolves issues
     hgt = Cimpl.get_height(img)
     wth = Cimpl.get_width(img)
 
@@ -72,6 +80,7 @@ def green_channel(img):
     every pixel's channels except for
     red have been set to 0.
     """
+    img = Cimpl.copy(img)
     hgt = Cimpl.get_height(img)
     wth = Cimpl.get_width(img)
 
@@ -81,10 +90,18 @@ def green_channel(img):
             Cimpl.set_color(img, x, y, Cimpl.create_color(0, g, 0))
     return img
 
-img = Cimpl.load_image('p2-original.jpg')
 
-Cimpl.show(img)
+white = Cimpl.create_image(50, 50)
+red = red_channel(white)
+Cimpl.show(red)
+blue = blue_channel(white)
+Cimpl.show(blue)
+green = green_channel(white)
+Cimpl.show(green)
 
-combined = combine(red_channel(img), green_channel(img), blue_channel(img))
+ideal_result = Cimpl.create_image(50, 50)
+combined = combine(red, white, blue)
 
 Cimpl.show(combined)
+
+

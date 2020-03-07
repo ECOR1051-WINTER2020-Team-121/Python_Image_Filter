@@ -37,13 +37,12 @@ def test_red_channel(filtered_img, ideal_img) -> str:
     return "SUCCESS: NO DISCREPANCY DETECTED"
 
 
-filename = 'p2-original.png'
-img = Cimpl.load_image(filename)
-duplicate = Cimpl.copy(img)
+og_img = Cimpl.create_image(50, 50, Cimpl.create_color(255, 255, 255))  # original image: white image
+ideal_img = Cimpl.create_image(50, 50, Cimpl.create_color(255, 0, 0))   # ideal result: all red image - each pix at 255r
 
-duplicate = red_channel(duplicate)
-print(test_red_channel(duplicate, Cimpl.load_image('red_image.png')))
+filtered_og = red_channel(og_img)
+print(test_red_channel(filtered_og, ideal_img))
 
 
-Cimpl.show(duplicate)
+Cimpl.show(filtered_og)
 

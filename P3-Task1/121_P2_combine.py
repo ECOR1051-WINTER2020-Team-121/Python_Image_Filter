@@ -30,8 +30,26 @@ def combine(r_img, g_img, b_img):
             r_red, g_red, b_red = Cimpl.get_color(r_img, x, y)
             r_green, g_green, b_green = Cimpl.get_color(g_img, x, y)
             r_blue, g_blue, b_blue = Cimpl.get_color(b_img, x, y)
-            Cimpl.set_color(img, x, y, Cimpl.create_color(r_red+r_green+r_blue, g_red+g_green+g_blue, b_red+b_green+b_blue))
+            red = compute_sum(r_red, r_green, r_blue)
+            green = compute_sum(g_red, g_green, g_blue)
+            blue = compute_sum(b_red, b_green, b_blue)
+            Cimpl.set_color(img, x, y, Cimpl.create_color(red, green, blue))
     return img
+
+
+def compute_sum(r: int, g: int, b: int) -> int:
+    """
+    RETURNS the sum of three numbers
+    PASSED. If sum exceeds 255, then
+    the sum is 255.
+
+    >> compute_sum(5,6,7)
+    18
+    """
+    if r + g + b <= 255:
+        return r + g + b
+    else:
+        return 255
 
 
 def red_channel(img):
@@ -91,6 +109,10 @@ def green_channel(img):
     return img
 
 
+def check_equal(expected, actual) -> None:
+    return "Is Expected equal to Actual?: {}".format(expected == actual)
+
+
 white = Cimpl.create_image(50, 50)
 red = red_channel(white)
 Cimpl.show(red)
@@ -100,7 +122,9 @@ green = green_channel(white)
 Cimpl.show(green)
 
 ideal_result = Cimpl.create_image(50, 50)
-combined = combine(red, white, blue)
+combined = combine(red, green, blue)
+
+print(check_equal(ideal_result, combined))
 
 Cimpl.show(combined)
 

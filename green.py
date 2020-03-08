@@ -1,6 +1,7 @@
 import Cimpl
 def green_channel():
-    """ 
+    """
+    The Author: Ibrahim Kasim
     green_channel(image:Cimpl.Image) -> Cimpl.Image:
     directs the user to choose an image that should be png, and 
     changes the green colour of the every individual pixels to the highest limit

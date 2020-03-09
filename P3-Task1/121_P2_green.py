@@ -45,6 +45,7 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
               "Outcome: Type {}".format(type(expected), type(outcome)))
 
 
+# Test 1
 white_original = Cimpl.create_image(50, 50, Cimpl.create_color(255, 255, 255))  # original image: white image
 green_expected = Cimpl.create_image(50, 50, Cimpl.create_color(0, 255, 0))   # ideal result: all green image - each pix at 255r
 
@@ -53,5 +54,10 @@ Cimpl.show(green_outcome)
 
 check_equal(green_outcome, green_expected)
 
+# Test 2
+expected = Cimpl.load_image('green_image.png')
+outcome = green_channel(Cimpl.load_image('p2-original.jpg'))
+Cimpl.show(outcome)
+check_equal(expected, outcome)
 
 

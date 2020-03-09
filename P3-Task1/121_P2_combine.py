@@ -47,54 +47,6 @@ def compute_sum(r: int, g: int, b: int) -> int:
         return 255
 
 
-def red_channel(img: Cimpl.Image) -> Cimpl.Image:
-    """
-    Author: Zakaria Ismail
-
-    RETURNS an ImageObject whose
-    channels except for red, have
-    been zeroed, after being
-    PASSED an ImageObject
-    """
-    copy = Cimpl.copy(img)
-    for x, y, (r, g, b) in img:
-        Cimpl.set_color(copy, x, y, Cimpl.create_color(r, 0, 0))
-    Cimpl.save_as(copy, 'red_channelled.png')
-    return copy
-
-
-def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
-    """
-    Author: Zakaria Ismail
-
-    RETURNS an ImageObject whose
-    channels except for blue, have
-    been zeroed, after being
-    PASSED an ImageObject
-    """
-    copy = Cimpl.copy(img)
-    for x, y, (r, g, b) in img:
-        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
-    Cimpl.save_as(copy, 'blue_channelled.png')
-    return copy
-
-
-def green_channel(img: Cimpl.Image) -> Cimpl.Image:
-    """
-    Author: Zakaria Ismail
-
-    RETURNS an ImageObject whose
-    channels except for green, have
-    been zeroed, after being
-    PASSED an ImageObject
-    """
-    copy = Cimpl.copy(img)
-    for x, y, (r, g, b) in img:
-        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, g, 0))
-    Cimpl.save_as(copy, 'green_channelled.png')
-    return copy
-
-
 def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
     """
     Author: Zakaria Ismail
@@ -125,11 +77,11 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
 
 # First test
 expected = Cimpl.create_image(50, 50)
-red = red_channel(expected)
+red = Cimpl.create_image(50, 50, Cimpl.Color(255, 0, 0))
 Cimpl.show(red)
-blue = blue_channel(expected)
+blue = Cimpl.create_image(50, 50, Cimpl.Color(0, 255, 0))
 Cimpl.show(blue)
-green = green_channel(expected)
+green = Cimpl.create_image(50, 50, Cimpl.Color(0, 0, 255))
 Cimpl.show(green)
 
 outcome = combine(red, green, blue)

@@ -55,6 +55,6 @@ check_equal(red_expected, red_outcome)
 
 # Second test
 expected = Cimpl.load_image('red_image.png')
-outcome = red_channel(Cimpl.load_image('p2-original.png'))
+outcome = red_channel(Cimpl.load_image('p2-original.jpg'))
 Cimpl.show(outcome)
 check_equal(expected, outcome)

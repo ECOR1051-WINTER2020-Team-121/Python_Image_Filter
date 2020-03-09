@@ -2,25 +2,6 @@ import Cimpl
 
 SAVE_FILE_AS = 'red_channelled.png'
 
-"""
-def red_channel(img):
-    Author: Zakaria Ismail
-
-    RETURNS an ImageObject where
-    every pixel's channels except for
-    red have been set to 0.
-    
-    hgt = Cimpl.get_height(img)
-    wth = Cimpl.get_width(img)
-
-    for y in range(hgt):
-        for x in range(wth):
-            r, g, b = Cimpl.get_color(img, x, y)
-            Cimpl.set_color(img, x, y, Cimpl.create_color(r, 0, 0))
-    Cimpl.save_as(img, 'redFiltered.png')
-    return img
-"""
-
 
 def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
@@ -52,6 +33,7 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
                 print("ERROR: Color discrepancy detected at x:{} y:{}\n"
                       "Expected: {}\n"
                       "Outcome: {}".format(x, y, exp_col, out_col))
+                errors += 1
         if errors == 0:
             print("SUCCESS: expected and outcome are of the same type and have identical pixels.")
         else:
@@ -61,24 +43,8 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
               "Expected: Type {}\n"
               "Outcome: Type {}".format(type(expected), type(outcome)))
 
-"""
-def test_red_channel(filtered_img, ideal_img) -> str:
 
-    Author: Zakaria Ismail
-
-    Compares each pixel in the filtered
-    original image and in the ideal result.
-    
-    hgt = Cimpl.get_height(filtered_img)
-    wth = Cimpl.get_width(filtered_img)
-
-    for y in range(hgt):
-        for x in range(wth):
-            if Cimpl.get_color(filtered_img, x, y) != Cimpl.get_color(ideal_img, x, y):
-                return "ERROR: UNIDENTICAL PIXELS AT x:{} y:{} {} {} ".format(x, y,Cimpl.get_color(filtered_img, x, y), Cimpl.get_color(ideal_img, x, y))
-    return "SUCCESS: NO DISCREPANCY DETECTED"
-"""
-
+# First test
 white_original = Cimpl.create_image(50, 50, Cimpl.create_color(255, 255, 255))  # original image: white image
 red_expected = Cimpl.create_image(50, 50, Cimpl.create_color(255, 0, 0))   # ideal result: all red image - each pix at 255r
 
@@ -86,3 +52,9 @@ red_outcome = red_channel(white_original)
 Cimpl.show(red_outcome)
 
 check_equal(red_expected, red_outcome)
+
+# Second test
+expected = Cimpl.load_image('red_image.png')
+outcome = red_channel(Cimpl.load_image('p2-original.png'))
+Cimpl.show(outcome)
+check_equal(expected, outcome)

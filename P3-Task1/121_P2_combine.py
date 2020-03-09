@@ -28,7 +28,7 @@ def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl
         b_r, b_g, b_b = Cimpl.get_color(b_img, x, y)
         color = Cimpl.create_color(compute_sum(r, g_r, b_r), compute_sum(g, g_g, b_g), compute_sum(b, g_b, b_b))
         Cimpl.set_color(base, x, y, color)
-    Cimpl.save_as(base, 'combined.png')
+    Cimpl.save_as(base, 'combined_image.png')
     return base
 
 
@@ -113,6 +113,7 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
                 print("ERROR: Color discrepancy detected at x:{} y:{}\n"
                       "Expected: {}\n"
                       "Outcome: {}".format(x, y, exp_col, out_col))
+                errors += 1
         if errors == 0:
             print("SUCCESS: expected and outcome are of the same type and have identical pixels.")
         else:
@@ -122,7 +123,7 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
               "Expected: Type {}\n"
               "Outcome: Type {}".format(type(expected), type(outcome)))
 
-
+# First test
 expected = Cimpl.create_image(50, 50)
 red = red_channel(expected)
 Cimpl.show(red)
@@ -132,5 +133,15 @@ green = green_channel(expected)
 Cimpl.show(green)
 
 outcome = combine(red, green, blue)
+check_equal(expected, outcome)
+
+# Second Test
+expected = Cimpl.load_image('p2-original.jpg')
+red = Cimpl.load_image('red_image.png')
+blue = Cimpl.load_image('blue_image.png')
+green = Cimpl.load_image('green_image.png')
+
+outcome = combine(red, green, blue)
+Cimpl.show(outcome)
 check_equal(expected, outcome)
 

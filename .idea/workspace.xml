@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="6466abca-9657-449b-ad8a-40f577ac8505" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/Ethan_tests/122_p2_combine.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Ethan_tests/Cimpl.py" afterDir="false" />
@@ -19,6 +20,9 @@
       <change beforePath="$PROJECT_DIR$/P3-Task1/121_P2_green.py" beforeDir="false" afterPath="$PROJECT_DIR$/P3-Task1/121_P2_green.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/P3-Task1/121_P2_red.py" beforeDir="false" afterPath="$PROJECT_DIR$/P3-Task1/121_P2_red.py" afterDir="false" />
     </list>
+=======
+    <list default="true" id="6466abca-9657-449b-ad8a-40f577ac8505" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +30,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< Updated upstream
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/P3-Task1/miss_sullivan.png">
@@ -96,6 +101,9 @@
         </entry>
       </file>
     </leaf>
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+>>>>>>> Stashed changes
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -147,6 +155,7 @@
               <item name="Python_Image_Filter" type="b2602c69:ProjectViewProjectNode" />
               <item name="Python_Image_Filter" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< Updated upstream
             <path>
               <item name="Python_Image_Filter" type="b2602c69:ProjectViewProjectNode" />
               <item name="Python_Image_Filter" type="462c0819:PsiDirectoryNode" />
@@ -167,6 +176,8 @@
               <item name="Python_Image_Filter" type="462c0819:PsiDirectoryNode" />
               <item name="Test_Files" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+>>>>>>> Stashed changes
           </expand>
           <select />
         </subPane>
@@ -331,14 +342,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
+<<<<<<< Updated upstream
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+=======
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+>>>>>>> Stashed changes
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
+<<<<<<< Updated upstream
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32972974" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32972974" />
+>>>>>>> Stashed changes
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -492,7 +512,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Ethan_tests/122_p2_combine.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="-12">
+=======
+        <state relative-caret-position="14">
+>>>>>>> Stashed changes
           <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
         </state>
       </provider>
@@ -520,8 +544,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_combine.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="-691">
           <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+=======
+        <state relative-caret-position="239">
+          <caret line="128" column="29" lean-forward="true" selection-start-line="128" selection-start-column="29" selection-end-line="128" selection-end-column="29" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>

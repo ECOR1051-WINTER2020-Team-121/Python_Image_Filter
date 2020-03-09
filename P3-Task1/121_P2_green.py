@@ -34,6 +34,7 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
                 print("ERROR: Color discrepancy detected at x:{} y:{}\n"
                       "Expected: {}\n"
                       "Outcome: {}".format(x, y, exp_col, out_col))
+                errors += 1
         if errors == 0:
             print("SUCCESS: expected and outcome are of the same type and have identical pixels.")
         else:

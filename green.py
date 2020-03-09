@@ -14,7 +14,7 @@ def green_channel():
     new_image = Cimpl.copy(original_image)
     for pixel in original_image:
         x,y,(r,g,b) = pixel
-        green_color = Cimpl.create_color(r,255,b)
+        green_color = Cimpl.create_color(0,g,0)
         Cimpl.set_color(new_image, x,y, green_color)
         
     Cimpl.show(new_image) 

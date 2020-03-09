@@ -7,7 +7,7 @@
 import Cimpl
 
 
-def combine(r_img, g_img, b_img):
+def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
@@ -21,20 +21,15 @@ def combine(r_img, g_img, b_img):
     Note: Passed ImageObjects must have
     the same width and height
     """
-    img = Cimpl.copy(r_img)    # set red image as the base
-    hgt = Cimpl.get_height(img)
-    wth = Cimpl.get_width(img)
+    base = Cimpl.copy(r_img)
 
-    for y in range(hgt):
-        for x in range(wth):
-            r_red, g_red, b_red = Cimpl.get_color(r_img, x, y)
-            r_green, g_green, b_green = Cimpl.get_color(g_img, x, y)
-            r_blue, g_blue, b_blue = Cimpl.get_color(b_img, x, y)
-            red = compute_sum(r_red, r_green, r_blue)
-            green = compute_sum(g_red, g_green, g_blue)
-            blue = compute_sum(b_red, b_green, b_blue)
-            Cimpl.set_color(img, x, y, Cimpl.create_color(red, green, blue))
-    return img
+    for x, y, (r, g, b) in base:
+        g_r, g_g, g_b = Cimpl.get_color(g_img, x, y)
+        b_r, b_g, b_b = Cimpl.get_color(b_img, x, y)
+        color = Cimpl.create_color(compute_sum(r, g_r, b_r), compute_sum(g, g_g, b_g), compute_sum(b, g_b, b_b))
+        Cimpl.set_color(base, x, y, color)
+    Cimpl.save_as(base, 'combined.png')
+    return base
 
 
 def compute_sum(r: int, g: int, b: int) -> int:
@@ -52,80 +47,90 @@ def compute_sum(r: int, g: int, b: int) -> int:
         return 255
 
 
-def red_channel(img):
+def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
-    RETURNS an ImageObject where
-    every pixel's channels except for
-    red have been set to 0.
+    RETURNS an ImageObject whose
+    channels except for red, have
+    been zeroed, after being
+    PASSED an ImageObject
     """
-    img = Cimpl.copy(img)
-    hgt = Cimpl.get_height(img)
-    wth = Cimpl.get_width(img)
-
-    for y in range(hgt):
-        for x in range(wth):
-            r, g, b = Cimpl.get_color(img, x, y)
-            Cimpl.set_color(img, x, y, Cimpl.create_color(r, 0, 0))
-    return img
+    copy = Cimpl.copy(img)
+    for x, y, (r, g, b) in img:
+        Cimpl.set_color(copy, x, y, Cimpl.create_color(r, 0, 0))
+    Cimpl.save_as(copy, 'red_channelled.png')
+    return copy
 
 
-def blue_channel(img):
+def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
-    RETURNS an ImageObject where
-    every pixel's channels except for
-    red have been set to 0.
+    RETURNS an ImageObject whose
+    channels except for blue, have
+    been zeroed, after being
+    PASSED an ImageObject
     """
-    img = Cimpl.copy(img)   # test to see if this resolves issues
-    hgt = Cimpl.get_height(img)
-    wth = Cimpl.get_width(img)
-
-    for y in range(hgt):
-        for x in range(wth):
-            r, g, b = Cimpl.get_color(img, x, y)
-            Cimpl.set_color(img, x, y, Cimpl.create_color(0, 0, b))
-    return img
+    copy = Cimpl.copy(img)
+    for x, y, (r, g, b) in img:
+        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
+    Cimpl.save_as(copy, 'blue_channelled.png')
+    return copy
 
 
-def green_channel(img):
+def green_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
-    RETURNS an ImageObject where
-    every pixel's channels except for
-    red have been set to 0.
+    RETURNS an ImageObject whose
+    channels except for green, have
+    been zeroed, after being
+    PASSED an ImageObject
     """
-    img = Cimpl.copy(img)
-    hgt = Cimpl.get_height(img)
-    wth = Cimpl.get_width(img)
-
-    for y in range(hgt):
-        for x in range(wth):
-            r, g, b = Cimpl.get_color(img, x, y)
-            Cimpl.set_color(img, x, y, Cimpl.create_color(0, g, 0))
-    return img
+    copy = Cimpl.copy(img)
+    for x, y, (r, g, b) in img:
+        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, g, 0))
+    Cimpl.save_as(copy, 'green_channelled.png')
+    return copy
 
 
-def check_equal(expected, actual) -> None:
-    return "Is Expected equal to Actual?: {}".format(expected == actual)
+def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
+    """
+    Author: Zakaria Ismail
+
+    Checks if PARAMETERS expected and outcome,
+    both Cimpl.Image objects are:
+        1. Of the same type
+        2. Have the same pixel at each location - Quantitatively the same
+    Assumes both PARAMETERS have the same dimensions <- should this be taken into account?
+    """
+    errors = 0
+    if type(expected) == type(outcome):
+        for x, y, exp_col in expected:
+            out_col = Cimpl.get_color(outcome, x, y)
+            if exp_col != out_col:
+                print("ERROR: Color discrepancy detected at x:{} y:{}\n"
+                      "Expected: {}\n"
+                      "Outcome: {}".format(x, y, exp_col, out_col))
+        if errors == 0:
+            print("SUCCESS: expected and outcome are of the same type and have identical pixels.")
+        else:
+            print("{} ERRORS detected.".format(errors))
+    else:
+        print("ERROR: Different types detected.\n"
+              "Expected: Type {}\n"
+              "Outcome: Type {}".format(type(expected), type(outcome)))
 
 
-white = Cimpl.create_image(50, 50)
-red = red_channel(white)
+expected = Cimpl.create_image(50, 50)
+red = red_channel(expected)
 Cimpl.show(red)
-blue = blue_channel(white)
+blue = blue_channel(expected)
 Cimpl.show(blue)
-green = green_channel(white)
+green = green_channel(expected)
 Cimpl.show(green)
 
-ideal_result = Cimpl.create_image(50, 50)
-combined = combine(red, green, blue)
-
-print(check_equal(ideal_result, combined))
-
-Cimpl.show(combined)
-
+outcome = combine(red, green, blue)
+check_equal(expected, outcome)
 

@@ -1,48 +1,56 @@
 import Cimpl
 
+SAVE_FILE_AS = 'blue_channelled.png'
 
-def blue_channel(img):
+
+def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
-
-    RETURNS an ImageObject where
-    every pixel's channels except for
-    blue have been set to 0.
+    RETURNS an ImageObject whose
+    channels except for blue, have
+    been zeroed, after being
+    PASSED an ImageObject
     """
-    hgt = Cimpl.get_height(img)
-    wth = Cimpl.get_width(img)
-
-    for y in range(hgt):
-        for x in range(wth):
-            r, g, b = Cimpl.get_color(img, x, y)
-            Cimpl.set_color(img, x, y, Cimpl.create_color(0, 0, b))
-    return img
+    copy = Cimpl.copy(img)
+    for x, y, (r, g, b) in img:
+        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
+    Cimpl.save_as(copy, SAVE_FILE_AS)
+    return copy
 
 
-def test_blue_channel(filtered_img, ideal_img) -> str:
+def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
     """
-    Author: Zakaria Ismail
-
-    Compares each pixel in the filtered
-    original image and in the ideal result.
+    Checks if PARAMETERS expected and outcome,
+    both Cimpl.Image objects are:
+        1. Of the same type
+        2. Have the same pixel at each location - Quantitatively the same
+    PRINTS the location
+    Assumes both PARAMETERS have the same dimensions <- should this be taken into account?
     """
-    hgt = Cimpl.get_height(filtered_img)
-    wth = Cimpl.get_width(filtered_img)
+    errors = 0
+    if type(expected) == type(outcome):
+        for x, y, exp_col in expected:
+            out_col = Cimpl.get_color(outcome, x, y)
+            if exp_col != out_col:
+                print("ERROR: Color discrepancy detected at x:{} y:{}\n"
+                      "Expected: {}\n"
+                      "Outcome: {}".format(x, y, exp_col, out_col))
+        if errors == 0:
+            print("SUCCESS: expected and outcome are of the same type and have identical pixels.")
+        else:
+            print("{} ERRORS detected.".format(errors))
+    else:
+        print("ERROR: Different types detected.\n"
+              "Expected: Type {}\n"
+              "Outcome: Type {}".format(type(expected), type(outcome)))
 
-    for y in range(hgt):
-        for x in range(wth):
-            if Cimpl.get_color(filtered_img, x, y) != Cimpl.get_color(ideal_img, x, y):
-                return "ERROR: UNIDENTICAL PIXELS AT x:{} y:{}".format(x, y)
-    return "SUCCESS: NO DISCREPANCY DETECTED"
 
+white_original = Cimpl.create_image(50, 50, Cimpl.create_color(255, 255, 255))  # original image: white image
+blue_expected = Cimpl.create_image(50, 50, Cimpl.create_color(0, 0, 255))   # ideal result: all blue image - each pix at 255r
 
-og_img = Cimpl.create_image(50, 50, Cimpl.create_color(255, 255, 255))  # original image: white image
-ideal_img = Cimpl.create_image(50, 50, Cimpl.create_color(0, 0, 255))   # ideal result: all red image - each pix at 255r
+blue_outcome = blue_channel(white_original)
+Cimpl.show(blue_outcome)
 
-filtered_og = blue_channel(og_img)
-print(test_blue_channel(filtered_og, ideal_img))
-
-Cimpl.show(filtered_og)
+check_equal(blue_outcome, blue_expected)
 
 
 

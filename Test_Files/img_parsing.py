@@ -1,20 +1,20 @@
+# experiments with image parsing methods using the Cimpl library
+
 import Cimpl
 
 
-SAVE_FILE_AS = 'green_channelled.png'
-
-
-def green_channel(img: Cimpl.Image) -> Cimpl.Image:
+def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    RETURNS an ImageObject whose
-    channels except for green, have
+    RETURNS an Cimpl.Image Object whose
+    channels, except for red, have
     been zeroed, after being
     PASSED an ImageObject
     """
     copy = Cimpl.copy(img)
+
     for x, y, (r, g, b) in img:
-        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, g, 0))
-    Cimpl.save_as(copy, SAVE_FILE_AS)
+        # print(x, y, r, g ,b)
+        Cimpl.set_color(copy, x, y, Cimpl.create_color(r, 0, 0))
     return copy
 
 
@@ -26,31 +26,20 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
         2. Have the same pixel at each location - Quantitatively the same
     Assumes both PARAMETERS have the same dimensions <- should this be taken into account?
     """
-    errors = 0
-    if type(expected) == type(outcome):
+    if type(expected) != type(outcome):
         for x, y, exp_col in expected:
             out_col = Cimpl.get_color(outcome, x, y)
             if exp_col != out_col:
                 print("ERROR: Color discrepancy detected at x:{} y:{}\n"
                       "Expected: {}\n"
                       "Outcome: {}".format(x, y, exp_col, out_col))
-        if errors == 0:
-            print("SUCCESS: expected and outcome are of the same type and have identical pixels.")
-        else:
-            print("{} ERRORS detected.".format(errors))
+        print("SUCCESS: expected and outcome are of the same type and have identical pixels.")
     else:
         print("ERROR: Different types detected.\n"
               "Expected: Type {}\n"
               "Outcome: Type {}".format(type(expected), type(outcome)))
 
 
-white_original = Cimpl.create_image(50, 50, Cimpl.create_color(255, 255, 255))  # original image: white image
-green_expected = Cimpl.create_image(50, 50, Cimpl.create_color(0, 255, 0))   # ideal result: all green image - each pix at 255r
-
-green_outcome = green_channel(white_original)
-Cimpl.show(green_outcome)
-
-check_equal(green_outcome, green_expected)
-
-
-
+imge = Cimpl.load_image('miss_sullivan.png')
+red_img = red_channel(imge)
+Cimpl.show(red_img)

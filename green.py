@@ -5,7 +5,7 @@ def green_channel():
     green_channel(image:Cimpl.Image) -> Cimpl.Image:
     directs the user to choose an image that should be png, and 
     changes the green colour of the every individual pixels to the highest limit
-    possible. 
+    possible. It saves the new image created under the name of 'outcome.png'. 
     
     """
     
@@ -16,30 +16,34 @@ def green_channel():
         x,y,(r,g,b) = pixel
         green_color = Cimpl.create_color(0,g,0)
         Cimpl.set_color(new_image, x,y, green_color)
-        
+
+    Cimpl.save_as(new_image, 'outcome.png')    
     Cimpl.show(new_image) 
-<<<<<<< Updated upstream
+    return new_image
     
-=======
+def test_green_channel(expected, outcome):
     
-def test_green_channel(original_image,new_image):
-    """ 
-    test_green_channel(original_image:Cimpl.Image, new_image:Cimpl.Image )-> Bool :
-   
-    Tests to see if the pixels colour green of the original
-    image is the same with the new image's green color pixel, whilst 
-    the other colors set to zero. It has two arguments, first one is the original
-    image, the second one is the new image with green filter applied.
-    
+    var1 = Cimpl.load_image(expected)
+    var2 = Cimpl.load_image(outcome)
+    Cimpl.show(var1)
+    Cimpl.show(var2)
     """
-    for pixel in original_image:
-        x,y,(r,g,b) = pixel
-        if r != 0 and b != 0:
-            return False
+    The Author: Ibrahim Kasim
+    test_green_channel(expected:Cimpl.Image,outcome:Cimpl.Image) -> Bool:
+    It checks if the pixel of the outcome image matches the pixel of expected image at each coordinate. It 
+    returns True if they are identical, otherwise it returns False.
+
+    """
     
+    for x,y,(r,g,b) in var1:
+        colour_tuple = Cimpl.get_color(var2,x,y)
+        if r != colour_tuple[0] and g != colour_tuple[1] and b != colour_tuple[2]:
+            print("The result of your comparison:")
+            return False
+    print("The result of your comparison:")
     return True
-        
                 
-        
-        
->>>>>>> Stashed changes
+green_channel()
+print(test_green_channel('green_image.png','riveter.jpg'))
+
+#test

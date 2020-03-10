@@ -1,8 +1,26 @@
-# ISSUE RESOLVED. SOLUTION: Make sure to create a
-# copy of an image in each function.
+"""
+Author: Zakaria Ismail
+Student Number: 101143497
 
-# Idea for testing: compare value addition with
-# actual result value?
+P.S. I was told to explain what was
+happening in my code, as the TA (Anastasiya)
+was uncertain about what was happening with the
+tests.
+
+I have two tests in my function; one using monochromatic
+images (white, red, green, blue) and another one using
+the supplied images (red dog, blue dog, green dog, normal dog).
+
+I did this because I had issues involving the .jpg and .png formatting
+and when I spoke to Professor Green, he told me that I had to use the
+first testing method, which involved testing monochromatic images so that
+I can prove, quantitatively, that my combine() function works.
+
+There are lots of errors that are shown from my check_equal() function
+while testing the given approved images (the dog pictures) due to the
+.jpg/.png formatting issue.
+
+"""
 
 import Cimpl
 
@@ -75,25 +93,27 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
               "Expected: Type {}\n"
               "Outcome: Type {}".format(type(expected), type(outcome)))
 
-# First test
+
+# First test - Involves Monochromatic Images
 expected = Cimpl.create_image(50, 50)
 red = Cimpl.create_image(50, 50, Cimpl.Color(255, 0, 0))
-Cimpl.show(red)
+#Cimpl.show(red)
 blue = Cimpl.create_image(50, 50, Cimpl.Color(0, 255, 0))
-Cimpl.show(blue)
+#Cimpl.show(blue)
 green = Cimpl.create_image(50, 50, Cimpl.Color(0, 0, 255))
-Cimpl.show(green)
+#Cimpl.show(green)
 
 outcome = combine(red, green, blue)
 check_equal(expected, outcome)
 
-# Second Test
+# Second Test - Involves Dog Images
 expected = Cimpl.load_image('p2-original.jpg')
-red = Cimpl.load_image('red_image.png')
+red = Cimpl.load_image('red_image.png')         # Given dog color images are loaded
 blue = Cimpl.load_image('blue_image.png')
 green = Cimpl.load_image('green_image.png')
 
 outcome = combine(red, green, blue)
+print("OUTCOME IS PRINTED:")
 Cimpl.show(outcome)
 check_equal(expected, outcome)
 

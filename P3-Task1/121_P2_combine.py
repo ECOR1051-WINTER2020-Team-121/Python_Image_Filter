@@ -95,6 +95,7 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
 
 
 # First test - Involves Monochromatic Images
+print("---FIRST SET OF TESTS: MONOCHROMATIC IMAGES---")
 expected = Cimpl.create_image(50, 50)
 red = Cimpl.create_image(50, 50, Cimpl.Color(255, 0, 0))
 #Cimpl.show(red)
@@ -107,6 +108,7 @@ outcome = combine(red, green, blue)
 check_equal(expected, outcome)
 
 # Second Test - Involves Dog Images
+print("---SECOND TEST: DOG IMAGES TESTS---")
 expected = Cimpl.load_image('p2-original.jpg')
 red = Cimpl.load_image('red_image.png')         # Given dog color images are loaded
 blue = Cimpl.load_image('blue_image.png')

@@ -112,7 +112,7 @@ class Color(tuple):
         # The preferred way for application code to convert a tuple t to a
         # Color object is:
         #
-        #     col = Color(t[0], [t1], t[2])
+        #     col = Color(t[0], t[1], t[2])
         #
         # or:
         #

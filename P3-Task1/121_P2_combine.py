@@ -2,10 +2,6 @@
 Author: Zakaria Ismail
 Student Number: 101143497
 
-P.S. I was told to explain what was
-happening in my code, as the TA (Anastasiya)
-was uncertain about what was happening with the
-tests.
 
 I have two tests in my function; one using monochromatic
 images (white, red, green, blue) and another one using

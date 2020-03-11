@@ -11,16 +11,13 @@ def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl
     Author: Zakaria Ismail
 
     RETURNS an ImageObject where
-    three image filenames are passed.
+    three Cimpl.Image objects are passed.
     Combines the color channels
     of the three arguments.
 
-    >> Cimpl.show(combine(Cimpl.load_image('red_image.png'), Cimpl.load_image('green_image.png'), Cimpl.load_image('blue_image.png'))
-    -> An a combination of the filtered images will be displayed. Hence, the original image.
+    >>> Cimpl.show(combine(Cimpl.load_image('red_image.png'), Cimpl.load_image('green_image.png'), Cimpl.load_image('blue_image.png'))
+    -> An a combination of the filtered images will be displayed.
     """
-    #r_img = Cimpl.load_image(r_img)
-    #g_img = Cimpl.load_image(g_img)
-    #b_img = Cimpl.load_image(b_img)
     base = Cimpl.copy(r_img)
 
     for x, y, (r, g, b) in base:
@@ -36,19 +33,17 @@ def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
-    RETURNS an ImageObject whose
+    RETURNS an Cimpl.Image object whose
     channels except for red, have
     been zeroed, after being
-    PASSED an image filename
+    PASSED an Cimpl.Image object
 
-    >> Cimpl.show(red_channel('p2-original.png'))
+    >>> Cimpl.show(red_channel(Cimpl.load_image('p2-original.png')))
     -> An a red filtered image will be displayed
     """
-    #img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
         Cimpl.set_color(copy, x, y, Cimpl.create_color(r, 0, 0))
-    #Cimpl.save_as(copy, SAVE_FILE_AS)
     return copy
 
 
@@ -56,19 +51,17 @@ def green_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
-    RETURNS an ImageObject whose
+    RETURNS an Cimpl.Image object whose
     channels except for green, have
     been zeroed, after being
-    PASSED an image filename
+    PASSED a Cimpl.Image object
 
-    >> Cimpl.show(green_channel('p2-original.png'))
+    >>> Cimpl.show(green_channel(Cimpl.load_image(('p2-original.png')))
     -> An a green filtered image will be displayed
     """
-    #img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
         Cimpl.set_color(copy, x, y, Cimpl.create_color(0, g, 0))
-    # Cimpl.save_as(copy, SAVE_FILE_AS)
     return copy
 
 
@@ -76,19 +69,17 @@ def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
-    RETURNS an ImageObject whose
+    RETURNS an Cimpl.Image object whose
     channels except for blue, have
     been zeroed, after being
-    PASSED an image filename
+    PASSED a Cimpl.Image
 
-    >> Cimpl.show(blue_channel('p2-original.png'))
+    >>> Cimpl.show(blue_channel(Cimpl.load_image('p2-original.png')))
     -> An a blue filtered image will be displayed
     """
-    #img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
         Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
-    # Cimpl.save_as(copy, SAVE_FILE_AS)
     return copy
 
 
@@ -100,7 +91,7 @@ def compute_sum(r: int, g: int, b: int) -> int:
     PASSED. If sum exceeds 255, then
     the sum is 255.
 
-    >> compute_sum(5,6,7)
+    >>> compute_sum(5,6,7)
     18
     """
     if r + g + b <= 255:
@@ -130,7 +121,7 @@ Cimpl.show(blue)
 
 print("COMPUTING COMBINED RGB IMAGE")
 combined = combine(red, green, blue)
-print("DISPLAYING COMBINED RGB FILTERED IMAGES: ")
+print("DISPLAYING COMBINED RGB FILTERED IMAGE: ")
 Cimpl.show(combined)
 
 print("\n"

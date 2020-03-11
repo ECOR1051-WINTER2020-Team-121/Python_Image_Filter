@@ -1,25 +1,21 @@
 import Cimpl
 
-#SAVE_FILE_AS = 'blue_channelled.png'
 
-
-def blue_channel(img: str) -> Cimpl.Image:
+def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
     RETURNS an ImageObject whose
     channels except for blue, have
     been zeroed, after being
-    PASSED an image filename
+    PASSED an Cimpl.Image object
 
     >>> Cimpl.show(blue_channel('p2-original.png'))
     -> An a blue filtered image will be displayed
     """
-    img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
         Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
-    #Cimpl.save_as(copy, SAVE_FILE_AS)
     return copy
 
 
@@ -57,16 +53,34 @@ expected = Cimpl.load_image(input("Select expected image filename: "))
 print("DISPLAYING EXPECTED IMAGE: ")
 Cimpl.show(expected)
 
-testfile = input("Input filename of image to be passed through FUNCTION blue_channel: ")
+testfile = Cimpl.load_image(input("Input filename of image to be passed through FUNCTION blue_channel: "))
 print("DISPLAYING TEST IMAGE: ")
-Cimpl.show(Cimpl.load_image(testfile))
+Cimpl.show(testfile)
 
 print("PASSING TEST IMAGE INTO function blue_channel: ")
 outcome = blue_channel(testfile)
 print("DISPLAYING OUTCOME: ")
 Cimpl.show(outcome)
 print("COMPARING EXPECTED AND OUTCOME")
-check_equal(expected, outcome)
+#check_equal(expected, outcome)
+
+# These are the test functions
+print("---TESTING blue_channel FUNCTION QUANTITATIVELY---")
+white = Cimpl.create_image(50, 50)
+print("DISPLAYING WHITE IMAGE: ")
+Cimpl.show(white)
+
+blue = Cimpl.create_image(50, 50, Cimpl.create_color(0, 0, 255))
+print("DISPLAYING EXPECTED BLUE IMAGE: ")
+Cimpl.show(blue)
+
+print("PASSING WHITE IMAGE INTO red_channel")
+filtered_white = blue_channel(white)
+print("DISPLAYING FILTERED WHITE IMAGE")
+Cimpl.show(filtered_white)
+print("COMPARING FILTERED WHITE IMAGE (outcome) AND BLUE IMAGE (expected)")
+check_equal(blue, filtered_white)
+
 
 
 

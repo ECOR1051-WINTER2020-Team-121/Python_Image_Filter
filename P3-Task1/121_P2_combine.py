@@ -12,21 +12,18 @@ while testing the given approved images (the dog pictures) due to the
 import Cimpl
 
 
-def combine(r_img: str, g_img: str, b_img: str) -> Cimpl.Image:
+def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
     RETURNS an ImageObject where
-    three image filenames are passed.
+    three Cimpl.Image objects are passed.
     Combines the color channels
     of the three arguments.
 
-    >>> Cimpl.show(combine('red_image.png', 'green_image.png', 'blue_image.png'))
-    -> An a combination of the filtered images will be displayed. Hence, the original image.
+    >>> Cimpl.show(combine(Cimpl.load_image('red_image.png'), Cimpl.load_image('green_image.png'), Cimpl.load_image('blue_image.png'))
+    -> a combination of the filtered images will be displayed.
     """
-    r_img = Cimpl.load_image(r_img)
-    g_img = Cimpl.load_image(g_img)
-    b_img = Cimpl.load_image(b_img)
     base = Cimpl.copy(r_img)
 
     for x, y, (r, g, b) in base:
@@ -90,21 +87,36 @@ expected = Cimpl.load_image(input('Input EXPECTED image filename: '))
 print("DISPLAYING EXPECTED IMAGE")
 Cimpl.show(expected)
 
-red = input("Input red image filename: ")  # choose_file does not work for me.
+red = Cimpl.load_image(input("Input red image filename: "))  # choose_file does not work for me.
 print("DISPLAYING RED IMAGE")
-Cimpl.show(Cimpl.load_image(red))
-green = input("Input green image filename: ")
+Cimpl.show(red)
+green = Cimpl.load_image(input("Input green image filename: "))
 print("DISPLAYING GREEN IMAGE")
-Cimpl.show(Cimpl.load_image(green))
-blue = input("Select blue image filename: ")
+Cimpl.show(green)
+blue = Cimpl.load_image(input("Select blue image filename: "))
 print("DISPLAYING BLUE IMAGE")
-Cimpl.show(Cimpl.load_image(blue))
+Cimpl.show(blue)
 
 print("COMBINING IMAGES")
 outcome = combine(red, green, blue)
 
 print("DISPLAYING combine() function OUTCOME IMAGE:")
 Cimpl.show(outcome)
-print("COMPARING OUTCOME AND EXPECTED: ")
+#print("COMPARING OUTCOME AND EXPECTED: ")
+#check_equal(expected, outcome)
+
+# These are the tests
+print("\n---TESTING function combine() QUANTITATIVELY---")
+expected = Cimpl.create_image(50, 50)
+
+red = Cimpl.create_image(50, 50, Cimpl.create_color(255, 0, 0))
+green = Cimpl.create_image(50, 50, Cimpl.create_color(0, 255, 0))
+blue = Cimpl.create_image(50, 50, Cimpl.create_color(0, 0, 255))
+
+outcome = combine(red, green, blue)
+print("DISPLAYING combine FUNCTION OUTCOME")
+Cimpl.show(outcome)
+print("COMPARING EXPECTED AND OUTCOME")
 check_equal(expected, outcome)
+
 

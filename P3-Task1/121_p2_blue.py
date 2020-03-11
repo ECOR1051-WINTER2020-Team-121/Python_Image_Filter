@@ -16,11 +16,12 @@ def blue_channel(raw_image):
 
     
 new_image = blue_channel(raw_image)
+print(blue_channel(raw_image))
 show(new_image)
 show( raw_image )
 
 def equal_text_blue()->str:
-    """return pass of fail if all of the pixel expect for blue is 0
+    """return pass or fail if all of the pixel expect for blue is 0
     """
     image =load_image(FILENAME)
     blue1=blue_channel(raw_image)

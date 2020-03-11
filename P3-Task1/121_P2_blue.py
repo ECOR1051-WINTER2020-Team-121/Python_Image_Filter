@@ -1,6 +1,6 @@
 import Cimpl
 
-SAVE_FILE_AS = 'blue_channelled.png'
+#SAVE_FILE_AS = 'blue_channelled.png'
 
 
 def blue_channel(img: str) -> Cimpl.Image:
@@ -16,7 +16,7 @@ def blue_channel(img: str) -> Cimpl.Image:
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
         Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
-    Cimpl.save_as(copy, SAVE_FILE_AS)
+    #Cimpl.save_as(copy, SAVE_FILE_AS)
     return copy
 
 

@@ -31,7 +31,8 @@ def check_equal(expected, outcome):
     The Author: Ibrahim Kasim
     check_equal(expected:Cimpl.Image,outcome:Cimpl.Image) -> Bool:
     It checks if the pixel of the outcome image matches the pixel of expected image at each coordinate. It 
-    returns True if they are identical, otherwise it returns False.
+    returns True if they are identical, otherwise it returns False. Before returning False, it prints the pixels
+    and (x,y) coordinates of both images at which the images differ in pixel. 
 
     """
     

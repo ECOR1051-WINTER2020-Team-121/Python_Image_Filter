@@ -1,5 +1,5 @@
 import Cimpl
-def 121_P2_green():
+def green_channel():
     """
     The Author: Ibrahim Kasim
     green_channel() -> Cimpl.Image:
@@ -21,7 +21,7 @@ def 121_P2_green():
     Cimpl.show(new_image) 
     return new_image
     
-def 121_P2_test_green(expected, outcome):
+def check_equal(expected, outcome):
     
     var1 = Cimpl.load_image(expected)
     var2 = Cimpl.load_image(outcome)
@@ -29,7 +29,7 @@ def 121_P2_test_green(expected, outcome):
     Cimpl.show(var2)
     """
     The Author: Ibrahim Kasim
-    test_green_channel(expected:Cimpl.Image,outcome:Cimpl.Image) -> Bool:
+    check_equal(expected:Cimpl.Image,outcome:Cimpl.Image) -> Bool:
     It checks if the pixel of the outcome image matches the pixel of expected image at each coordinate. It 
     returns True if they are identical, otherwise it returns False.
 
@@ -43,7 +43,7 @@ def 121_P2_test_green(expected, outcome):
     print("The result of your comparison:")
     return True
                 
-121_P2_green()
-print(121_P2_test_green('green_image.png','riveter.jpg'))
+green_channel()
+print(check_equal('green_image.png','riveter.jpg'))
 
 #test

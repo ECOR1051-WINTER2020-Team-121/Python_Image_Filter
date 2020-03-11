@@ -31,7 +31,7 @@ def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl
 
 def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
+    Author: Himanshu Singh
 
     RETURNS an Cimpl.Image object whose
     channels except for red, have
@@ -49,7 +49,7 @@ def red_channel(img: Cimpl.Image) -> Cimpl.Image:
 
 def green_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
+    Author: Ibrahim Kasim
 
     RETURNS an Cimpl.Image object whose
     channels except for green, have
@@ -67,7 +67,7 @@ def green_channel(img: Cimpl.Image) -> Cimpl.Image:
 
 def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
+    Author: Yanglong Liu
 
     RETURNS an Cimpl.Image object whose
     channels except for blue, have

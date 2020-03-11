@@ -2,11 +2,6 @@
 1. Team Identifier: #121
 2. Contributing Members: Zakaria Ismail - 101143497
 
-
-There are lots of errors that are shown from my check_equal() function
-while testing the given approved images (the dog pictures) due to the
-.jpg/.png formatting issue.
-
 """
 
 import Cimpl

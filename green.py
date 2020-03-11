@@ -1,5 +1,5 @@
 import Cimpl
-def 121_green_channel():
+def 121_P2_green():
     """
     The Author: Ibrahim Kasim
     green_channel() -> Cimpl.Image:
@@ -21,7 +21,7 @@ def 121_green_channel():
     Cimpl.show(new_image) 
     return new_image
     
-def test_green_channel(expected, outcome):
+def 121_P2_test_green(expected, outcome):
     
     var1 = Cimpl.load_image(expected)
     var2 = Cimpl.load_image(outcome)
@@ -43,7 +43,7 @@ def test_green_channel(expected, outcome):
     print("The result of your comparison:")
     return True
                 
-green_channel()
-print(test_green_channel('green_image.png','riveter.jpg'))
+121_P2_green()
+print(121_P2_test_green('green_image.png','riveter.jpg'))
 
 #test

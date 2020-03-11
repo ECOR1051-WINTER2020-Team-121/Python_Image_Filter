@@ -11,6 +11,9 @@ def blue_channel(img: str) -> Cimpl.Image:
     channels except for blue, have
     been zeroed, after being
     PASSED an image filename
+
+    >>> Cimpl.show(blue_channel('p2-original.png'))
+    -> An a blue filtered image will be displayed
     """
     img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)

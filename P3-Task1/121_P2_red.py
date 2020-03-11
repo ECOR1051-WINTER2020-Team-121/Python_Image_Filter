@@ -3,7 +3,7 @@ import Cimpl
 #SAVE_FILE_AS = 'red_channelled.png'
 
 
-def red_channel(img: Cimpl.Image) -> Cimpl.Image:
+def red_channel(img: str) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
@@ -11,6 +11,9 @@ def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     channels except for red, have
     been zeroed, after being
     PASSED an image filename
+
+    >>> Cimpl.show(red_channel('p2-original.png'))
+    -> An a red filtered image will be displayed
     """
     img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)

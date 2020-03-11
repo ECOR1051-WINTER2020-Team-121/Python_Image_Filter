@@ -1,16 +1,7 @@
 """
-1. Team Identifier: Team #121
+1. Team Identifier: #121
 2. Contributing Members: Zakaria Ismail - 101143497
 
-P.S
-I have two tests in my function; one using monochromatic
-images (white, red, green, blue) and another one using
-the supplied images (red dog, blue dog, green dog, normal dog).
-
-I did this because I had issues involving the .jpg and .png formatting
-and when I spoke to Professor Green, he told me that I had to use the
-first testing method, which involved testing monochromatic images so that
-I can prove, quantitatively, that my combine() function works.
 
 There are lots of errors that are shown from my check_equal() function
 while testing the given approved images (the dog pictures) due to the
@@ -30,8 +21,8 @@ def combine(r_img: str, g_img: str, b_img: str) -> Cimpl.Image:
     Combines the color channels
     of the three arguments.
 
-    >> combine(red_img, green_img, blue_img)
-    combined_img
+    >>> Cimpl.show(combine('red_image.png', 'green_image.png', 'blue_image.png'))
+    -> An a combination of the filtered images will be displayed. Hence, the original image.
     """
     r_img = Cimpl.load_image(r_img)
     g_img = Cimpl.load_image(g_img)
@@ -72,6 +63,9 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
     both Cimpl.Image objects are:
         1. Of the same type
         2. Have the same pixel at each location - Quantitatively the same
+
+    >>> check_equal(Cimpl.load_image('p2-original.jpg'), Cimpl.load_image('combined_image.png'))
+    -> Test results and error messages are printed.
     """
     errors = 0
     if type(expected) == type(outcome):

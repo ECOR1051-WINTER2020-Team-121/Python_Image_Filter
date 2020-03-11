@@ -3,13 +3,16 @@ import Cimpl
 SAVE_FILE_AS = 'blue_channelled.png'
 
 
-def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
+def blue_channel(img: str) -> Cimpl.Image:
     """
+    Author: Zakaria Ismail
+
     RETURNS an ImageObject whose
     channels except for blue, have
     been zeroed, after being
-    PASSED an ImageObject
+    PASSED an image filename
     """
+    img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
         Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
@@ -19,6 +22,8 @@ def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
 
 def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
     """
+    Author: Zakaria Ismail
+
     Checks if PARAMETERS expected and outcome,
     both Cimpl.Image objects are:
         1. Of the same type
@@ -44,19 +49,20 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
               "Outcome: Type {}".format(type(expected), type(outcome)))
 
 
-# Test 1
-white_original = Cimpl.create_image(50, 50, Cimpl.create_color(255, 255, 255))  # original image: white image
-blue_expected = Cimpl.create_image(50, 50, Cimpl.create_color(0, 0, 255))   # ideal result: all blue image - each pix at 255r
+print("---TESTING FUNCTION blue_channel()---")
+expected = Cimpl.load_image(input("Select expected image filename: "))
+print("DISPLAYING EXPECTED IMAGE: ")
+Cimpl.show(expected)
 
-blue_outcome = blue_channel(white_original)
-Cimpl.show(blue_outcome)
+testfile = input("Input filename of image to be passed through FUNCTION blue_channel: ")
+print("DISPLAYING TEST IMAGE: ")
+Cimpl.show(Cimpl.load_image(testfile))
 
-check_equal(blue_outcome, blue_expected)
-
-# Test 2
-expected = Cimpl.load_image('blue_image.png')
-outcome = blue_channel(Cimpl.load_image('p2-original.jpg'))
+print("PASSING TEST IMAGE INTO function blue_channel: ")
+outcome = blue_channel(testfile)
+print("DISPLAYING OUTCOME: ")
 Cimpl.show(outcome)
+print("COMPARING EXPECTED AND OUTCOME")
 check_equal(expected, outcome)
 
 

@@ -21,18 +21,21 @@ while testing the given approved images (the dog pictures) due to the
 import Cimpl
 
 
-def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl.Image:
+def combine(r_img: str, g_img: str, b_img: str) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
     RETURNS an ImageObject where
-    three ImageObjects are PASSED.
+    three image filenames are passed.
     Combines the color channels
     of the three arguments.
 
     >> combine(red_img, green_img, blue_img)
     combined_img
     """
+    r_img = Cimpl.load_image(r_img)
+    g_img = Cimpl.load_image(g_img)
+    b_img = Cimpl.load_image(b_img)
     base = Cimpl.copy(r_img)
 
     for x, y, (r, g, b) in base:
@@ -89,30 +92,24 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
               "Outcome: Type {}".format(type(expected), type(outcome)))
 
 
-# First test - Involves Monochromatic Images
-print("---FIRST SET OF TESTS: MONOCHROMATIC IMAGES---")
-expected = Cimpl.create_image(50, 50)
-red = Cimpl.create_image(50, 50, Cimpl.Color(255, 0, 0))
-#Cimpl.show(red)
-blue = Cimpl.create_image(50, 50, Cimpl.Color(0, 255, 0))
-#Cimpl.show(blue)
-green = Cimpl.create_image(50, 50, Cimpl.Color(0, 0, 255))
-#Cimpl.show(green)
-
-outcome = combine(red, green, blue)
-check_equal(expected, outcome)
-
-# Second Test - Involves Dog Images
-print("---SECOND TEST: DOG IMAGES TESTS---")
-expected = Cimpl.load_image('p2-original.jpg')
-red = Cimpl.load_image('red_image.png')         # Given dog color images are loaded
-blue = Cimpl.load_image('blue_image.png')
-green = Cimpl.load_image('green_image.png')
-
-print("EXPECTED IS DISPLAYED: ")
+expected = Cimpl.load_image(input('Input EXPECTED image filename: '))
+print("DISPLAYING EXPECTED IMAGE")
 Cimpl.show(expected)
+
+red = input("Input red image filename: ")  # choose_file does not work for me.
+print("DISPLAYING RED IMAGE")
+Cimpl.show(Cimpl.load_image(red))
+green = input("Input green image filename: ")
+print("DISPLAYING GREEN IMAGE")
+Cimpl.show(Cimpl.load_image(green))
+blue = input("Select blue image filename: ")
+print("DISPLAYING BLUE IMAGE")
+Cimpl.show(Cimpl.load_image(blue))
+
+print("COMBINING IMAGES")
 outcome = combine(red, green, blue)
-print("OUTCOME IS DISPLAYED:")
+
+print("DISPLAYING combine() function OUTCOME IMAGE:")
 Cimpl.show(outcome)
 print("COMPARING OUTCOME AND EXPECTED: ")
 check_equal(expected, outcome)

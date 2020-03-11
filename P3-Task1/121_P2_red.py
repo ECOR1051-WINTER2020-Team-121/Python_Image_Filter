@@ -5,11 +5,14 @@ SAVE_FILE_AS = 'red_channelled.png'
 
 def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
+    Author: Zakaria Ismail
+
     RETURNS an ImageObject whose
     channels except for red, have
     been zeroed, after being
     PASSED an ImageObject
     """
+    img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
         Cimpl.set_color(copy, x, y, Cimpl.create_color(r, 0, 0))
@@ -19,6 +22,8 @@ def red_channel(img: Cimpl.Image) -> Cimpl.Image:
 
 def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
     """
+    Author: Zakaria Ismail
+
     Checks if PARAMETERS expected and outcome,
     both Cimpl.Image objects are:
         1. Of the same type
@@ -43,18 +48,18 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
               "Expected: Type {}\n"
               "Outcome: Type {}".format(type(expected), type(outcome)))
 
+print("---TESTING FUNCTION red_channel()---")
+expected = Cimpl.load_image(input("Select expected image filename: "))
+print("DISPLAYING EXPECTED IMAGE: ")
+Cimpl.show(expected)
 
-# First test
-white_original = Cimpl.create_image(50, 50, Cimpl.create_color(255, 255, 255))  # original image: white image
-red_expected = Cimpl.create_image(50, 50, Cimpl.create_color(255, 0, 0))   # ideal result: all red image - each pix at 255r
+testfile = input("Input filename of image to be passed through FUNCTION red_channel: ")
+print("DISPLAYING TEST IMAGE: ")
+Cimpl.show(Cimpl.load_image(testfile))
 
-red_outcome = red_channel(white_original)
-Cimpl.show(red_outcome)
-
-check_equal(red_expected, red_outcome)
-
-# Second test
-expected = Cimpl.load_image('red_image.png')
-outcome = red_channel(Cimpl.load_image('p2-original.jpg'))
+print("PASSING TEST IMAGE INTO function red_channel: ")
+outcome = red_channel(testfile)
+print("DISPLAYING OUTCOME: ")
 Cimpl.show(outcome)
+print("COMPARING EXPECTED AND OUTCOME")
 check_equal(expected, outcome)

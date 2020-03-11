@@ -4,14 +4,14 @@ import Cimpl
 SAVE_FILE_AS = 'green_channelled.png'
 
 
-def green_channel(img: Cimpl.Image) -> Cimpl.Image:
+def green_channel(img: str) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
     RETURNS an ImageObject whose
     channels except for green, have
     been zeroed, after being
-    PASSED an ImageObject
+    PASSED an image filename
     """
     img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)

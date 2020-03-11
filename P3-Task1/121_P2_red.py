@@ -10,7 +10,7 @@ def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     RETURNS an ImageObject whose
     channels except for red, have
     been zeroed, after being
-    PASSED an ImageObject
+    PASSED an image filename
     """
     img = Cimpl.load_image(img)
     copy = Cimpl.copy(img)

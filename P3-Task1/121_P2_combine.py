@@ -1,8 +1,8 @@
 """
-Author: Zakaria Ismail
-Student Number: 101143497
+1. Team Identifier: Team #121
+2. Contributing Members: Zakaria Ismail - 101143497
 
-
+P.S
 I have two tests in my function; one using monochromatic
 images (white, red, green, blue) and another one using
 the supplied images (red dog, blue dog, green dog, normal dog).
@@ -27,13 +27,11 @@ def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl
 
     RETURNS an ImageObject where
     three ImageObjects are PASSED.
+    Combines the color channels
+    of the three arguments.
 
-    FUNCTION combines the three images'
-    corresponding colour channels in
-    each pixel.
-
-    Note: Passed ImageObjects must have
-    the same width and height
+    >> combine(red_img, green_img, blue_img)
+    combined_img
     """
     base = Cimpl.copy(r_img)
 
@@ -48,6 +46,8 @@ def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl
 
 def compute_sum(r: int, g: int, b: int) -> int:
     """
+    Author: Zakaria Ismail
+
     RETURNS the sum of three numbers
     PASSED. If sum exceeds 255, then
     the sum is 255.
@@ -65,11 +65,10 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
     """
     Author: Zakaria Ismail
 
-    Checks if PARAMETERS expected and outcome,
+    RETURNS nothing. Checks if PARAMETERS expected and outcome,
     both Cimpl.Image objects are:
         1. Of the same type
         2. Have the same pixel at each location - Quantitatively the same
-    Assumes both PARAMETERS have the same dimensions <- should this be taken into account?
     """
     errors = 0
     if type(expected) == type(outcome):
@@ -110,8 +109,11 @@ red = Cimpl.load_image('red_image.png')         # Given dog color images are loa
 blue = Cimpl.load_image('blue_image.png')
 green = Cimpl.load_image('green_image.png')
 
+print("EXPECTED IS DISPLAYED: ")
+Cimpl.show(expected)
 outcome = combine(red, green, blue)
-print("OUTCOME IS PRINTED:")
+print("OUTCOME IS DISPLAYED:")
 Cimpl.show(outcome)
+print("COMPARING OUTCOME AND EXPECTED: ")
 check_equal(expected, outcome)
 

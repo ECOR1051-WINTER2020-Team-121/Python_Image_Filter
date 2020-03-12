@@ -36,7 +36,7 @@ def redchannel(FILENAME):
         red = create_color(r, 0, 0)
         set_color (newimage, x, y, red)
     show(newimage)
-    save_as(newimage, 'outcome.png')                
+    save_as(newimage, 'outcome.jpg')                
     return newimage    
     #return newimage
 
@@ -64,12 +64,11 @@ def check_equal(expected, outcome):
         else:
             print("The result:")
             return True
-#this will be true because the redfiltered function and 
-print(check_equal("red_image.jpg","outcome.png"))
+    
+print(check_equal("red_image.jpg","outcome.jpg"))
 
-#this will be false because the two iamges being compared are the original
-#image and the outcome of the filter function
-print(check_equal("p2-original.jpg","outcome.png"))
+
+print(check_equal("p2-original.jpg","outcome.jpg"))
 
 
 original = load_image(FILENAME)

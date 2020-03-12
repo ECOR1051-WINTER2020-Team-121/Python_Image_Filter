@@ -7,6 +7,7 @@ def grayscale(img: Cimpl.Image) -> Cimpl.Image:
     Cimpl.Image object after
     being PASSEDD a Cimpl.Image object.
     """
+    img = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
         avg = (r + g + b) / 3
         Cimpl.set_color(img, x, y, Cimpl.create_color(avg, avg, avg))
@@ -103,7 +104,7 @@ def extreme_contrast(img: Cimpl.Image) -> Cimpl.Image:
     return copy
 
 
-def detect_edges(img: Cimpl.Image, thres: int) -> Cimpl.Image:
+def detect_edges(img: Cimpl.Image, thres) -> Cimpl.Image:
     """
     RETURNS...
     """
@@ -113,18 +114,18 @@ def detect_edges(img: Cimpl.Image, thres: int) -> Cimpl.Image:
         if y+1 < hgt:
             r2, g2, b2 = Cimpl.get_color(copy, x, y+1)
             contrast = abs((r + g + b)/3 - (r2 + g2 + b2)/3)
-            print(contrast)
+            #print(contrast)
             if contrast > thres:
                 col = Cimpl.create_color(0, 0, 0)
-                print("HIGH")
+                #print("HIGH")
             else:
                 col = Cimpl.create_color(255, 255, 255)
-                print("LOW")
+                #print("LOW")
             Cimpl.set_color(copy, x, y, col)
     return copy
 
 
-def detect_edges_better(img: Cimpl.Image, thres: int) -> Cimpl.Image:
+def detect_edges_better(img: Cimpl.Image, thres) -> Cimpl.Image:
     """
     RETURNS a Cimpl.Image object.
     Is detect_edges, but better.
@@ -135,7 +136,7 @@ def detect_edges_better(img: Cimpl.Image, thres: int) -> Cimpl.Image:
     for x, y, (r, g, b) in img:
         if y + 1 < hgt:
             if x + 1 < wth:
-                print("It got in")
+                #print("It got in")
                 r2, g2, b2 = Cimpl.get_color(img, x, y + 1)
                 r3, g3, b3 = Cimpl.get_color(img, x + 1, y)
                 contrast_bot = abs((r + g + b) / 3 - (r2 + g2 + b2) / 3)
@@ -184,6 +185,8 @@ def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
             Cimpl.set_color(copy, x, y, Cimpl.get_color(img, wth-x-1, y))
             Cimpl.set_color(copy, wth-x-1, y, Cimpl.get_color(img, x, y))
     return copy
+"""
+FUNCTION TEST CALLS:
 
 starter = Cimpl.load_image('miss_sullivan.png')
 Cimpl.show(starter)
@@ -201,12 +204,12 @@ wood_img = woodcut(Cimpl.load_image('miss_sullivan.png'))
 Cimpl.show(wood_img)
 
 extrem_img = extreme_contrast(Cimpl.load_image('miss_sullivan.png'))
-Cimpl.show(starter)
+Cimpl.show(extrem_img)
 
-detec_img = detect_edges(Cimpl.load_image('miss_sullivan.png'), 120)
+detec_img = detect_edges(Cimpl.load_image('miss_sullivan.png'), 5)
 Cimpl.show(detec_img)
 
-detec_better_img = detect_edges_better(Cimpl.load_image('miss_sullivan.png'), 120)
+detec_better_img = detect_edges_better(Cimpl.load_image('miss_sullivan.png'), 5)
 Cimpl.show(detec_better_img)
 
 vert_img = flip_vertical(Cimpl.load_image('miss_sullivan.png'))
@@ -214,3 +217,4 @@ Cimpl.show(vert_img)
 
 hori_img = flip_horizontal(Cimpl.load_image('miss_sullivan.png'))
 Cimpl.show(hori_img)
+"""

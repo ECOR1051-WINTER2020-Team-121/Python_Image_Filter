@@ -16,7 +16,7 @@ def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl
     of the three arguments.
 
     >>> Cimpl.show(combine(Cimpl.load_image('red_image.png'), Cimpl.load_image('green_image.png'), Cimpl.load_image('blue_image.png'))
-    -> An a combination of the filtered images will be displayed.
+    -> Returns a Cimpl.Image object
     """
     base = Cimpl.copy(r_img)
 
@@ -39,7 +39,7 @@ def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     PASSED an Cimpl.Image object
 
     >>> Cimpl.show(red_channel(Cimpl.load_image('p2-original.png')))
-    -> An a red filtered image will be displayed
+    -> Returns a Cimpl.Image object
     """
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
@@ -47,29 +47,34 @@ def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     return copy
 
 
-def green_channel(img: Cimpl.Image) -> Cimpl.Image:
+def green_channel(original_image: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Ibrahim Kasim
+    RETURNS a Cimpl.Image object
+    after nulling all but the green channel.
+    Is PASSED a Cimpl.Image object.
 
-    RETURNS an Cimpl.Image object whose
-    channels except for green, have
-    been zeroed, after being
-    PASSED a Cimpl.Image object
-
-    >>> Cimpl.show(green_channel(Cimpl.load_image(('p2-original.png')))
-    -> An a green filtered image will be displayed
+    >>> Cimpl.show(green_channel(Cimpl.load_image('p2-original.png')))
+    -> Returns a Cimpl.Image object
     """
-    copy = Cimpl.copy(img)
-    for x, y, (r, g, b) in img:
-        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, g, 0))
-    return copy
+
+    new_image = Cimpl.copy(original_image)
+    for pixel in original_image:
+        x, y, (r, g, b) = pixel
+        green_color = Cimpl.create_color(0, g, 0)
+        Cimpl.set_color(new_image, x, y, green_color)
+
+    return new_image
 
 
-def blue_channel(raw_image):
+def blue_channel(raw_image: Cimpl.Image) -> Cimpl.Image:
     """Author: Yanglong liu
     RETURNS a Cimpl.Image object
     whose red and green channels
     have been set to 0
+
+    >>> Cimpl.show(blue_channel(Cimpl.load_image('p2-original.png')))
+    -> Returns a Cimpl.Image object
     """
     blue_channel_image = Cimpl.copy(raw_image)
     for pi in raw_image:

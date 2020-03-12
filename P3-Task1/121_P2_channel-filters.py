@@ -65,22 +65,18 @@ def green_channel(img: Cimpl.Image) -> Cimpl.Image:
     return copy
 
 
-def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
+def blue_channel(raw_image):
+    """Author: Yanglong liu
+    RETURNS a Cimpl.Image object
+    whose red and green channels
+    have been set to 0
     """
-    Author: Yanglong Liu
-
-    RETURNS an Cimpl.Image object whose
-    channels except for blue, have
-    been zeroed, after being
-    PASSED a Cimpl.Image
-
-    >>> Cimpl.show(blue_channel(Cimpl.load_image('p2-original.png')))
-    -> An a blue filtered image will be displayed
-    """
-    copy = Cimpl.copy(img)
-    for x, y, (r, g, b) in img:
-        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
-    return copy
+    blue_channel_image = Cimpl.copy(raw_image)
+    for pi in raw_image:
+        x,y,(r,g,b)=pi
+        new_image_color = Cimpl.create_color(0,0,b)
+        Cimpl.set_color(blue_channel_image,x,y,new_image_color)
+    return blue_channel_image
 
 
 def compute_sum(r: int, g: int, b: int) -> int:

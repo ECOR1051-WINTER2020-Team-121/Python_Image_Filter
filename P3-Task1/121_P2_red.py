@@ -20,12 +20,14 @@ def redchan(image: Cimpl.image):
 se = redchan(original)
 print(se)
 """
-FILENAME = "p2-original.jpg"
+#FILENAME = "p2-original.jpg"
+FILENAME = input() #Im using input because choose_file() makes my macbook hang
+#the name of the file is p2-original.jpg
 
 def redchannel(FILENAME):
     
     """
-    
+    "Author: Himanshu Singh
     Takes in FileName as str (hardcoded) and outputs a filtered image 
     (red) using Cimpl library.j
     
@@ -43,6 +45,17 @@ def redchannel(FILENAME):
 
 
 def check_equal(expected, outcome):
+    
+    """
+AUTHOR: HIMANSHU SINGH
+    check_equal(expected:Cimpl.Image,outcome:Cimpl.Image) -> Bool:
+    It basically checks if the outcome image matches the pixel of the expected
+    image.
+    returns True if they have less than 1 error, otherwise it returns False.
+    Before returning False, it prints the pixels
+    and (x,y) coordinates of both images at which the images differ in pixel. 
+
+    """
     ce_one = load_image(expected)
     ce_two = load_image(outcome)
     show(ce_one)
@@ -64,10 +77,12 @@ def check_equal(expected, outcome):
         else:
             print("The result:")
             return True
-    
+#this will print true because both the red variant of the original image and the
+#outcome of the redchannel function will be the same picture.
 print(check_equal("red_image.jpg","outcome.jpg"))
 
-
+#this will print false as the orginal image is not the same as the outcome image
+#as the outcome image has a red filter on it. 
 print(check_equal("p2-original.jpg","outcome.jpg"))
 
 

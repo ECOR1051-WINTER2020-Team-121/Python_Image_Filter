@@ -31,7 +31,7 @@ def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl
 
 def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    Author: Himanshu Singh
+    Author: Zakaria Ismail
 
     RETURNS an Cimpl.Image object whose
     channels except for red, have
@@ -82,6 +82,37 @@ def blue_channel(raw_image: Cimpl.Image) -> Cimpl.Image:
         new_image_color = Cimpl.create_color(0,0,b)
         Cimpl.set_color(blue_channel_image,x,y,new_image_color)
     return blue_channel_image
+
+
+def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
+    """
+    Author: Zakaria Ismail
+
+    RETURNS nothing. Checks if PARAMETERS expected and outcome,
+    both Cimpl.Image objects are:
+        1. Of the same type
+        2. Have the same pixel at each location - Quantitatively the same
+
+    >>> check_equal(Cimpl.load_image('p2-original.jpg'), Cimpl.load_image('combined_image.png'))
+    -> Test results and error messages are printed.
+    """
+    errors = 0
+    if type(expected) == type(outcome):
+        for x, y, exp_col in expected:
+            out_col = Cimpl.get_color(outcome, x, y)
+            if exp_col != out_col:
+                print("ERROR: Color discrepancy detected at x:{} y:{}\n"
+                      "Expected: {}\n"
+                      "Outcome: {}".format(x, y, exp_col, out_col))
+                errors += 1
+        if errors == 0:
+            print("SUCCESS: expected and outcome are of the same type and have identical pixels.")
+        else:
+            print("{} ERRORS detected.".format(errors))
+    else:
+        print("ERROR: Different types detected.\n"
+              "Expected: Type {}\n"
+              "Outcome: Type {}".format(type(expected), type(outcome)))
 
 
 def compute_sum(r: int, g: int, b: int) -> int:

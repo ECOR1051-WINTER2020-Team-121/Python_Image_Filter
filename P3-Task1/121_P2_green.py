@@ -28,7 +28,6 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
     both Cimpl.Image objects are:
         1. Of the same type
         2. Have the same pixel at each location - Quantitatively the same
-    Assumes both PARAMETERS have the same dimensions <- should this be taken into account?
     """
     errors = 0
     if type(expected) == type(outcome):

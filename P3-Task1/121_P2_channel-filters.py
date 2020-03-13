@@ -1,6 +1,6 @@
 """
 Team Identifier: #121
-Contributing Members: Zakaria Ismail, Ibrahim Kasim, Yanglong Liu, Himanshu Singh
+Contributing Members: Zakaria Ismail, Ibrahim Kasim, Yanglong Liu
 """
 
 import Cimpl

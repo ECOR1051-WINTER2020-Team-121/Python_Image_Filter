@@ -187,7 +187,7 @@ def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
     return copy
 
 
-def two_tone(img: Cimpl.Image, tone_a: str, tone_b: str) -> Image.Cimpl
+def two_tone(img: Cimpl.Image, tone_a: str, tone_b: str) -> Cimpl.Image:
     """
     RETURNS a Cimpl.Image object
     that was turned into a two toned image.
@@ -207,7 +207,7 @@ def two_tone(img: Cimpl.Image, tone_a: str, tone_b: str) -> Image.Cimpl
     }
 
     img = Cimpl.copy(img)
-    for x, y, (r, g, b) in img:
+    #for x, y, (r, g, b) in img:
 
 
 """

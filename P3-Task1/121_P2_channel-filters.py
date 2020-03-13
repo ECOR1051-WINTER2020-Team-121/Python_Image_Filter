@@ -31,7 +31,7 @@ def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl
 
 def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    Author: Himanshu Singh
+    Author: Zakaria Ismail
 
     RETURNS an Cimpl.Image object whose
     channels except for red, have

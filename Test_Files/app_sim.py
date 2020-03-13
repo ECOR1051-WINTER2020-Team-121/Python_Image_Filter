@@ -2,7 +2,7 @@
 from simple_Cimpl_filters import *
 import Cimpl
 
-CHOICES = ['L', 'G', 'S', 'P', 'W', 'D', 'E', 'I', 'V', 'H', 'S', 'Q']
+CHOICES = ['L', 'G', 'S', 'P', 'W', 'D', 'E', 'I', 'V', 'H', 'Save', 'Q']
 
 
 def menu() -> None:
@@ -20,7 +20,7 @@ def menu() -> None:
                 print("Command not found")
             print("Please select an option: \n"
                 "\tL)oad image\tG)rayscale\tS)epia\tP)osterize\tW)oodcut\tD)eep Fried"
-                  "\tE)dge detect\tI)mproved edges\tV)ert Flip\tH)oriz Flip\tS)ave image\tQ)uit\n")
+                  "\tE)dge detect\tI)mproved edges\tV)ert Flip\tH)oriz Flip\tSave) image\tQ)uit\n")
             option = input("Option: ")
             error = 1
         if option == 'L':
@@ -46,7 +46,7 @@ def menu() -> None:
             loaded_image = flip_vertical(loaded_image)
         elif option == 'H':
             loaded_image = flip_horizontal(loaded_image)
-        elif option == 'S':
+        elif option == 'Save':
             saved_name = input("Input the name that you would like to save this file as: ")
             Cimpl.save_as(loaded_image, saved_name)
         elif option == 'Q':

@@ -185,12 +185,37 @@ def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
             Cimpl.set_color(copy, x, y, Cimpl.get_color(img, wth-x-1, y))
             Cimpl.set_color(copy, wth-x-1, y, Cimpl.get_color(img, x, y))
     return copy
+
+
+def two_tone(img: Cimpl.Image, tone_a: str, tone_b: str) -> Image.Cimpl
+    """
+    RETURNS a Cimpl.Image object
+    that was turned into a two toned image.
+    Is PASSED a Cimpl.Image object,
+    and two strings
+    """
+    COLOURS = {
+        'black': Cimpl.Color(0, 0, 0),
+        'white': Cimpl.Color(255, 255, 255),
+        'red': Cimpl.Color(255, 0, 0),
+        'lime': Cimpl.Color(0, 255, 0),
+        'blue': Cimpl.Color(0, 0, 255),
+        'yellow': Cimpl.Color(255, 255, 0),
+        'cyan': Cimpl.Color(0, 255, 255),
+        'magenta': Cimpl.Color(255, 0, 255),
+        'gray': Cimpl.Color(128, 128, 128)
+    }
+
+    img = Cimpl.copy(img)
+    for x, y, (r, g, b) in img:
+
+
 """
 FUNCTION TEST CALLS:
-
+"""
 starter = Cimpl.load_image('miss_sullivan.png')
 Cimpl.show(starter)
-
+"""
 grey = grayscale(Cimpl.load_image('miss_sullivan.png'))
 Cimpl.show(grey)
 
@@ -218,3 +243,4 @@ Cimpl.show(vert_img)
 hori_img = flip_horizontal(Cimpl.load_image('miss_sullivan.png'))
 Cimpl.show(hori_img)
 """
+

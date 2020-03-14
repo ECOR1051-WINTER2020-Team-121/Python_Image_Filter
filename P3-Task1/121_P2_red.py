@@ -34,8 +34,8 @@ def redchannel(FILENAME):
     """
     image = load_image(FILENAME)
     newimage = copy(image)
-    for x, y, (r, g, b) in image:
-        red = create_color(r, 0, 0)
+    for x, y, (r, g, b) in image:,
+        red = create_color(r, 0, 0)t
         set_color (newimage, x, y, red)
     show(newimage)
     save_as(newimage, 'outcome.jpg')                

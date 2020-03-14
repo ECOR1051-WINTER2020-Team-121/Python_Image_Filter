@@ -1,9 +1,9 @@
 
 keyed_list = {
-    ['year']: 2019,
-    ['make']: 'corolla',
-    ['brand']: 'toyota'
+    'year': 2019,
+    'make': 'corolla',
+    'brand': 'toyota'
 }
 
-print(keyed_list)
+print(keyed_list['year'])
 

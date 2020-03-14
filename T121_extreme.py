@@ -1,7 +1,9 @@
 import Cimpl
 
 def extreme_channel(original_image:Cimpl.Image)-> Cimpl.Image:
-    """returns image object with extreme contrast filter apllied.
+    """
+    The author: Ibrahim Kasim
+    returns image object with extreme contrast filter apllied.
     
         >>>test_image = Cimpl.load_image(Cimpl.choose_file())
            extreme_channel(test_image)

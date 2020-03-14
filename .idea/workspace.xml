@@ -1,32 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    <list default="true" id="6466abca-9657-449b-ad8a-40f577ac8505" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Ethan_tests/122_p2_combine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ethan_tests/Cimpl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ethan_tests/blue_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ethan_tests/green_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ethan_tests/p2-original.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ethan_tests/red_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test_Files/Cimpl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test_Files/equal_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test_Files/img_parsing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test_Files/miss_sullivan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test_Files/red_image.png" afterDir="false" />
+    <list default="true" id="2c368656-2b09-4dc1-8a71-7ab6f5ecdf51" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P3-Task1/121_P2_blue.py" beforeDir="false" afterPath="$PROJECT_DIR$/P3-Task1/121_P2_blue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P3-Task1/121_P2_combine.py" beforeDir="false" afterPath="$PROJECT_DIR$/P3-Task1/121_P2_combine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P3-Task1/121_P2_green.py" beforeDir="false" afterPath="$PROJECT_DIR$/P3-Task1/121_P2_green.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P3-Task1/121_P2_red.py" beforeDir="false" afterPath="$PROJECT_DIR$/P3-Task1/121_P2_red.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Files/simple_Cimpl_filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Files/simple_Cimpl_filters.py" afterDir="false" />
     </list>
-=======
-    <list default="true" id="6466abca-9657-449b-ad8a-40f577ac8505" name="Default Changelist" comment="" />
->>>>>>> Stashed changes
-=======
-    <list default="true" id="b9e10f8c-2af0-476d-b2ae-05cf0b3a15bb" name="Default Changelist" comment="" />
->>>>>>> Stashed changes
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,134 +12,34 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/P3-Task1/miss_sullivan.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Test_Files/Cimpl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="425" column="14" selection-start-line="425" selection-start-column="4" selection-end-line="425" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Test_Files/equal_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_red.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_combine.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-691">
-              <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Ethan_tests/122_p2_combine.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12">
-              <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_green.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_blue.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-=======
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/green.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_channel-filters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
->>>>>>> Stashed changes
+            <state relative-caret-position="96">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Test_Files/simple_Cimpl_filters.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="63" column="23" lean-forward="true" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-<<<<<<< Updated upstream
-=======
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
->>>>>>> Stashed changes
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>get_color</find>
-      <find>create_color</find>
-      <find>save_as</find>
-      <find>create_image</find>
-      <find>load_image</find>
-      <find>get_height</find>
-    </findStrings>
-=======
->>>>>>> Stashed changes
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< Updated upstream
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/P3-Task1/121-P2_blue.py" />
-        <option value="$PROJECT_DIR$/Test_Files/img_parsing.py" />
-        <option value="$PROJECT_DIR$/P3-Task1/121_P2_red.py" />
-        <option value="$PROJECT_DIR$/Test_Files/equal_test.py" />
-        <option value="$PROJECT_DIR$/Ethan_tests/122_p2_combine.py" />
-        <option value="$PROJECT_DIR$/P3-Task1/121_P2_blue.py" />
-        <option value="$PROJECT_DIR$/P3-Task1/121_P2_green.py" />
-        <option value="$PROJECT_DIR$/P3-Task1/121_P2_combine.py" />
-=======
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/Python_Image_Filter.iml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
->>>>>>> Stashed changes
+        <option value="$PROJECT_DIR$/Test_Files/simple_Cimpl_filters.py" />
       </list>
     </option>
   </component>
@@ -174,24 +52,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Python_Image_Filter" type="b2602c69:ProjectViewProjectNode" />
               <item name="Python_Image_Filter" type="462c0819:PsiDirectoryNode" />
-            </path>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            <path>
-              <item name="Python_Image_Filter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Python_Image_Filter" type="462c0819:PsiDirectoryNode" />
-              <item name="Ethan_tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Python_Image_Filter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Python_Image_Filter" type="462c0819:PsiDirectoryNode" />
-              <item name="Given_Files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Python_Image_Filter" type="b2602c69:ProjectViewProjectNode" />
@@ -203,34 +70,15 @@
               <item name="Python_Image_Filter" type="462c0819:PsiDirectoryNode" />
               <item name="Test_Files" type="462c0819:PsiDirectoryNode" />
             </path>
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
-<<<<<<< Updated upstream
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Ethan_tests" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/P3-Task1" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Ethan_tests" />
-      <recent name="$PROJECT_DIR$/Test_Files" />
-      <recent name="$PROJECT_DIR$/P3-Task1" />
-    </key>
-  </component>
-=======
->>>>>>> Stashed changes
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -243,186 +91,25 @@
       </list>
     </option>
   </component>
-<<<<<<< Updated upstream
-  <component name="RunManager" selected="Python.121_P2_combine">
-    <configuration name="121_P2_blue" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Python_Image_Filter" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P3-Task1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P3-Task1/121_P2_blue.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="121_P2_combine" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Python_Image_Filter" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P3-Task1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P3-Task1/121_P2_combine.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="121_P2_green" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Python_Image_Filter" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P3-Task1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P3-Task1/121_P2_green.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="121_P2_red" type="PythonConfigurationType" factoryName="Python" temporary="true">
-=======
-  <component name="RunManager">
-    <configuration name="green" type="PythonConfigurationType" factoryName="Python" temporary="true">
->>>>>>> Stashed changes
-      <module name="Python_Image_Filter" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-<<<<<<< Updated upstream
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P3-Task1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P3-Task1/121_P2_red.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="122_p2_combine" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Python_Image_Filter" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Ethan_tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Ethan_tests/122_p2_combine.py" />
-=======
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/green.py" />
->>>>>>> Stashed changes
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-<<<<<<< Updated upstream
-        <item itemvalue="Python.121_P2_combine" />
-        <item itemvalue="Python.122_p2_combine" />
-        <item itemvalue="Python.121_P2_red" />
-        <item itemvalue="Python.121_P2_green" />
-        <item itemvalue="Python.121_P2_blue" />
-=======
-        <item itemvalue="Python.green" />
->>>>>>> Stashed changes
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< Updated upstream
-      <changelist id="6466abca-9657-449b-ad8a-40f577ac8505" name="Default Changelist" comment="" />
-      <created>1583499488142</created>
+      <changelist id="2c368656-2b09-4dc1-8a71-7ab6f5ecdf51" name="Default Changelist" comment="" />
+      <created>1584227894295</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1583499488142</updated>
-=======
-      <changelist id="b9e10f8c-2af0-476d-b2ae-05cf0b3a15bb" name="Default Changelist" comment="" />
-      <created>1583870872404</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1583870872404</updated>
->>>>>>> Stashed changes
+      <updated>1584227894295</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-<<<<<<< Updated upstream
-    <frame x="0" y="23" width="1440" height="832" extended-state="6" />
-<<<<<<< Updated upstream
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
-=======
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
->>>>>>> Stashed changes
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
-<<<<<<< Updated upstream
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32972974" />
-=======
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32972974" />
->>>>>>> Stashed changes
-=======
-    <frame x="0" y="23" width="1440" height="833" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="834" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
@@ -430,212 +117,28 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32928476" />
->>>>>>> Stashed changes
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-<<<<<<< Updated upstream
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32972974" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-=======
->>>>>>> Stashed changes
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
-<<<<<<< Updated upstream
-    <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24947146" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="2" weight="0.32972974" />
-      <window_info anchor="bottom" id="Python Console" order="3" />
-      <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.32972974" />
-      <window_info anchor="bottom" id="Debug" order="7" visible="true" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Ethan_tests/122_p2_combine.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Given_Files/Cimpl.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Given_Files/red_image.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Given_Files/red_image.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Given_Files/miss_sullivan.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Given_Files/great_big_c.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Given_Files/green_image.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Given_Files/green_image.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/p2-original.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/p2-original.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/codecs.py">
+    <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_channel-filters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        <state relative-caret-position="96">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/red_image.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/green_image.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/green_image.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/Cimpl.py">
+    <entry file="file://$PROJECT_DIR$/Test_Files/simple_Cimpl_filters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5910">
-          <caret line="400" column="16" selection-start-line="400" selection-start-column="4" selection-end-line="400" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test_Files/img_parsing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Given_Files/test_grayscale.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2475">
-          <caret line="168" column="16" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="16" />
-          <folding>
-            <element signature="e#120#237#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/miss_sullivan.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test_Files/Cimpl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="425" column="14" selection-start-line="425" selection-start-column="4" selection-end-line="425" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/blue_channelled.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test_Files/equal_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Given_Files/new_ms_sully.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Given_Files/p2-original.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/PIL/Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="2814" selection-start-line="2814" selection-end-line="2814" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ethan_tests/Cimpl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="171" selection-start-line="171" selection-end-line="171" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ethan_tests/122_p2_combine.py">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="-12">
-=======
-        <state relative-caret-position="14">
->>>>>>> Stashed changes
-          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_red.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_green.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_blue.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P3-Task1/121_P2_combine.py">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="-691">
-          <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
-=======
-        <state relative-caret-position="239">
-          <caret line="128" column="29" lean-forward="true" selection-start-line="128" selection-start-column="29" selection-end-line="128" selection-end-column="29" />
->>>>>>> Stashed changes
-=======
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/green.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
->>>>>>> Stashed changes
+        <state relative-caret-position="372">
+          <caret line="63" column="23" lean-forward="true" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
         </state>
       </provider>
     </entry>

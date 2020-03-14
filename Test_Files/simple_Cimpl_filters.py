@@ -45,6 +45,7 @@ def posterize(img: Cimpl.Image) -> Cimpl.Image:
     whose RGB components have been rounded
     to the midpoint of the following quadrants:
         0 to 63, 64 to 127, 128 to 191, and 192 to 255
+    depending on their value
     Is PASSED a Cimpl.Image object
     """
     img = Cimpl.copy(img)

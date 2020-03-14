@@ -1,0 +1,36 @@
+import Cimpl
+
+def extreme_channel(original_image:Cimpl.Image)-> Cimpl.Image:
+    """returns image object with extreme contrast filter apllied.
+    
+        >>>test_image = Cimpl.load_image(Cimpl.choose_file())
+           extreme_channel(test_image)
+        ...(shows orginal image in extreme contrast filter)
+
+    """
+    new_image = Cimpl.copy(original_image)
+    min_pixel = 0 
+    max_pixel = 255 
+    for x,y,(r,g,b) in original_image:
+        colour_tuple = Cimpl.get_color(original_image,x,y)
+        
+        for component in colour_tuple:
+            list_colour = list(colour_tuple)
+            i = 0 
+            if component <= 127:
+                list_colour[i] = min_pixel
+                maximized_contrast = Cimpl.create_color(list_colour[0],list_colour[1],list_colour[2])
+                Cimpl.set_color(new_image,x,y,maximized_contrast)
+            elif component >= 128:
+                list_colour[i] = max_pixel
+                maximized_contrast = Cimpl.create_color(list_colour[0],list_colour[1],list_colour[2])
+                Cimpl.set_color(new_image,x,y,maximized_contrast)
+            i += 1 
+    Cimpl.save_as("outcome_extreme")    
+    Cimpl.show(new_image)
+    
+        
+test_image = Cimpl.load_image(Cimpl.choose_file())
+extreme_channel(test_image)
+
+

@@ -3,9 +3,8 @@ def green_channel():
     """
     The Author: Ibrahim Kasim
     green_channel() -> Cimpl.Image:
-    directs the user to choose an image that should be png, and 
-    changes the green colour of the every individual pixels to the highest limit
-    possible. It saves the new image created under the name of 'outcome.png'. 
+    Returns green filtered image. It directs user to choose an image that 
+    is desired for filtering.
     
     """
     
@@ -16,8 +15,7 @@ def green_channel():
         x,y,(r,g,b) = pixel
         green_color = Cimpl.create_color(0,g,0)
         Cimpl.set_color(new_image, x,y, green_color)
-
-    Cimpl.save_as(new_image, 'outcome.png')    
+    
     Cimpl.show(new_image) 
     return new_image
     
@@ -30,10 +28,7 @@ def check_equal(expected, outcome):
     """
     The Author: Ibrahim Kasim
     check_equal(expected:Cimpl.Image,outcome:Cimpl.Image) -> Bool:
-    It checks if the pixel of the outcome image matches the pixel of expected image at each coordinate. It 
-    returns True if they are identical, otherwise it returns False. Before returning False, it prints the pixels
-    and (x,y) coordinates of both images at which the images differ in pixel. 
-
+    Returns boolean statement. It checks if two images match. 
     """
     test_increase = 0
     for x,y,(r,g,b) in var1:
@@ -41,7 +36,7 @@ def check_equal(expected, outcome):
         if r != colour_tuple[0] or g != colour_tuple[1] or b != colour_tuple[2]:
             test_increase += 1 
             print("difference detected on the point ({},{}):".format(x,y))
-            print("The pixel of the expected image:({},{},{} vs. pixel of the outcome image:({},{},{}))".format(r,g,b,colour_tuple[0],colour_tuple[1],colour_tuple[2]))
+            print("The pixel of the expected image:({},{},{}) vs. pixel of the outcome image:({},{},{}))".format(r,g,b,colour_tuple[0],colour_tuple[1],colour_tuple[2]))
 
 
     if test_increase > 0:        
@@ -51,16 +46,9 @@ def check_equal(expected, outcome):
         print("The result of your comparison:")
         return True
 
-#Testing        
-green_channel()
+#Testing:        
+#green_channel()
+print(check_equal(Cimpl.choose_file(),Cimpl.choose_file()))
 
-# It will return True as the two images match.
-print(check_equal('greenfiltered_.png','outcome.png'))
-
-
-# This example check will return False, since the expected image is original image while the outcome is filtered.
-# this was done to demonstrate how the test function works and it will print each points and the 
-# respective pixels that are every time the pixels are different. 
-print(check_equal('great_big_c.jpg','outcome.png'))
 
 

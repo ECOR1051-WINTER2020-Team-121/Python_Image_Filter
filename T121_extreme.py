@@ -24,7 +24,7 @@ def extreme_channel(original_image:Cimpl.Image)-> Cimpl.Image:
                 maximized_contrast = Cimpl.create_color(list_colour[0],list_colour[1],list_colour[2])
                 Cimpl.set_color(new_image,x,y,maximized_contrast)
             i += 1 
-    #Cimpl.save_as(new_image,"outcome_extreme.png")    
+    Cimpl.save_as(new_image,"outcome_extreme.png")    
     Cimpl.show(new_image)
     
         

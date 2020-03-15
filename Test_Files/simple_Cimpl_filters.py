@@ -241,7 +241,7 @@ def three_tone(img: Cimpl.Image, tone_a: str, tone_b: str, tone_c: str) -> Cimpl
         brightness = (r + g + b) / 3
         if brightness <= 84:
             Cimpl.set_color(img, x, y, COLOURS[tone_a])
-        elif 84 < brightness < 170:
+        elif 84 < brightness <= 170:
             Cimpl.set_color(img, x, y, COLOURS[tone_b])
         else:
             Cimpl.set_color(img, x, y, COLOURS[tone_c])

@@ -30,7 +30,7 @@ def check_equal(expected, outcome):
 def test_sepia()-> bool:
     """
     The author: Ibrahim Kasim
-    It returns a true or false.  
+    It returns true or false.  
     """
     original_image = Cimpl.create_image(5,1)#expected image has to have a height of 5 to cover 5 different cases.
     Cimpl.set_color(original_image,0,0,Cimpl.create_color(1,22,22))#grayscale filter applied: Color(red=15, green=15, blue=15), below 63

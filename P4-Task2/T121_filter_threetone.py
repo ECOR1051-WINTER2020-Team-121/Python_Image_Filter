@@ -3,23 +3,10 @@
 group number: 121
 author: himanshu singh
 """
-from Cimpl import *
-COLORS = {
-    
-"black": Color(0, 0, 0), #black
-"white": Color(255,255,255), #white
-"gray": Color(128,128,128), # gray
-"red": Color(255,0,0), #red
-"lime": Color(0,255,0), #lime
-"blue": Color(0,0,255), #blue
-"yellow": Color(255,255,0), #yellow
-"cyan": Color(0,255,255), #cyan
-"magenta": Color(255,0,255) #magenta
+import Cimpl
 
-}
-FILENAME = input()
 
-def brightness(r: int, g: int, b: int ) -> int:
+def _brightness(r: int, g: int, b: int ) -> int:
     """
     this returns the brightness of a pixel at a certain (x,y) coordinate. 
     """
@@ -28,44 +15,60 @@ def brightness(r: int, g: int, b: int ) -> int:
 
     return _brightness
 
-def threetone(img: Image, col1, col2, col3) -> Image:
+def three_tone(img: Cimpl.Image) -> Cimpl.Image:
+  
     """
-    Returns an image object that is in two tone. It does this by using brightness
-    to determine whether a pixel will be black or white. Black if brightness
-    less than or equal to 127, else it is white. Takes in the RGB components 
-    of the original image at coordinates (x,y). Col1 and Col2 are color() objects
-    that represent black and white in rgb components.
-    e.g twotone(FILENAME,col1,col2)
-    FILENAME is the original image, col1 and col2 are the two colors that are
-    dealt with.
+    Returns a three-toned Cimpl.Image object, based on the colors col1, col2
+    and col3 passed. 
     
+    img is the original Cimpl.Image object passed
+    
+    col1, col2 and col3 are the strings representing the image.
     """
-    image = load_image(FILENAME)
-    newimage = copy(image)    
+    COLORS = {
+        
+    "black": Cimpl.Color(0, 0, 0), #black
+    "white": Cimpl.Color(255,255,255), #white
+    "gray": Cimpl.Color(128,128,128), # gray
+    "red": Cimpl.Color(255,0,0), #red
+    "lime": Cimpl.Color(0,255,0), #lime
+    "blue": Cimpl.Color(0,0,255), #blue
+    "yellow": Cimpl.Color(255,255,0), #yellow
+    "cyan": Cimpl.Color(0,255,255), #cyan
+    "magenta": Cimpl.Color(255,0,255) #magenta
     
-    for x, y, (r, g, b) in image:
+    }    
+    
+    col1 = COLORS['black']
+    col2 = COLORS['white']
+    col3 = COLORS['gray']
+    col4 = COLORS['red']
+    col5 = COLORS['lime']
+    col6 = COLORS['blue']
+    col7 = COLORS['yellow']
+    col8 = COLORS['cyan']
+    col9 = COLORS['magenta']
+    
+    
+    #image = load_image(FILENAME)
+    newimage = Cimpl.copy(img)    
+    
+    for x, y, (r, g, b) in img:
         bright = _brightness(r,g,b)
     
         if bright <= 84:
-            set_color(newimage, x, y, col1)
+            Cimpl.set_color(newimage, x, y, col1)
         
         elif 84 < bright <= 170:
-            set_color(newimage, x , y, col2)
+            Cimpl.set_color(newimage, x , y, col2)
         
         else:
-            set_color(newimage, x, y, col3)
+            Cimpl.set_color(newimage, x, y, col3)
             
-    save_as(newimage,"3toneoutcome.jpg")
-    show(newimage)
-    show(image)
+    Cimpl.save_as(newimage,"3toneoutcome.jpg")
+    Cimpl.show(newimage)
+    Cimpl.show(img)
     return newimage
-col1 = COLORS['black']
-col2 = COLORS['white']
-col3 = COLORS['gray']
-col4 = COLORS['red']
-col5 = COLORS['lime']
-col6 = COLORS['blue']
-col7 = COLORS['yellow']
-col8 = COLORS['cyan']
-col9 = COLORS['magenta']
-threetone(FILENAME, col1, col2, col3)
+
+
+three_tone(Cimpl.load_image("miss_sullivan.jpg"))

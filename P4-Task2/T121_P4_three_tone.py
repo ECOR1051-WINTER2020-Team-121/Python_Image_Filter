@@ -1,4 +1,3 @@
-
 """
 #Group: Himanshu Singh, Zakaria Ismail, Ibrahim Kasim, Yang Long Liu
 group number: 121
@@ -7,26 +6,25 @@ author: himanshu singh
 import Cimpl
 
 
-def _brightness(r: int, g: int, b:int ) -> int:
+def _brightness(r: int, g: int, b: int ) -> int:
     """
-    this returns the brightness of a pixel at a certain (x,y) coordinate.
+    this returns the brightness of a pixel at a certain (x,y) coordinate. 
     """
     _brightness = (r + g + b)/3
     
 
     return _brightness
 
-def two_tone(img: Cimpl.Image) -> Cimpl.Image:
-    
+def three_tone(img: Cimpl.Image, col1: str, col2: str, col3: str ) -> Cimpl.Image:
+  
     """
-    Returns a two-toned Cimpl.Image object, based on the colors col1 and col2
-    passed. 
+    Returns a three-toned Cimpl.Image object, based on the colors col1, col2
+    and col3 passed. 
     
     img is the original Cimpl.Image object passed
     
-    col1 and col2 are the strings representing the image.
+    col1, col2 and col3 are the strings representing the image.
     """
-    
     COLORS = {
         
     "black": Cimpl.Color(0, 0, 0), #black
@@ -41,35 +39,26 @@ def two_tone(img: Cimpl.Image) -> Cimpl.Image:
     
     }    
     
-    col1 = COLORS['black']
-    col2 = COLORS['white']
-    col3 = COLORS['gray']
-    col4 = COLORS['red']
-    col5 = COLORS['lime']
-    col6 = COLORS['blue']
-    col7 = COLORS['yellow']
-    col8 = COLORS['cyan']
-    col9 = COLORS['magenta']
     
-
     #image = load_image(FILENAME)
     newimage = Cimpl.copy(img)    
     
     for x, y, (r, g, b) in img:
         bright = _brightness(r,g,b)
     
-        if bright <=127:
-            black = Cimpl.create_color(0,0,0)
-            Cimpl.set_color(newimage, x, y, col1)
-            
+        if bright <= 84:
+            Cimpl.set_color(newimage, x, y, COLORS[col1])
+        
+        elif 84 < bright <= 170:
+            Cimpl.set_color(newimage, x , y, COLORS[col2])
         
         else:
-            Cimpl.set_color(newimage, x, y, col2)
+            Cimpl.set_color(newimage, x, y, COLORS[col3])
             
-    Cimpl.save_as(newimage,"2toneoutcome.jpg")
+    Cimpl.save_as(newimage,"3toneoutcome.jpg")
     Cimpl.show(newimage)
     Cimpl.show(img)
     return newimage
 
 
-two_tone(Cimpl.load_image("miss_sullivan.jpg"))
+three_tone(Cimpl.load_image("miss_sullivan.jpg"), 'black', 'white', 'gray' )

@@ -126,7 +126,7 @@ def detect_edges(img: Cimpl.Image, thres) -> Cimpl.Image:
     return copy
 
 
-def detect_edges_better(img: Cimpl.Image, thres) -> Cimpl.Image:
+def detect_edges_better(img: Cimpl.Image, thres: int) -> Cimpl.Image:
     """
     RETURNS a Cimpl.Image object.
     Is detect_edges, but better.
@@ -134,6 +134,7 @@ def detect_edges_better(img: Cimpl.Image, thres) -> Cimpl.Image:
     img = Cimpl.copy(img)
     hgt = Cimpl.get_height(img)
     wth = Cimpl.get_width(img)
+    avg_contrast = 0
     for x, y, (r, g, b) in img:
         if y + 1 < hgt:
             if x + 1 < wth:
@@ -142,11 +143,15 @@ def detect_edges_better(img: Cimpl.Image, thres) -> Cimpl.Image:
                 r3, g3, b3 = Cimpl.get_color(img, x + 1, y)
                 contrast_bot = abs((r + g + b) / 3 - (r2 + g2 + b2) / 3)
                 contrast_right = abs((r + g + b) / 3 - (r3 + g3 + b3) / 3)
+
+                avg_contrast += (contrast_bot+contrast_right)/2
                 if contrast_bot > thres or contrast_right > thres:
                     col = Cimpl.create_color(0, 0, 0)
                 else:
                     col = Cimpl.create_color(255, 255, 255)
         Cimpl.set_color(img, x, y, col)
+    avg_contrast /= wth * hgt
+    print(avg_contrast)
     return img
 
 
@@ -250,8 +255,8 @@ def three_tone(img: Cimpl.Image, tone_a: str, tone_b: str, tone_c: str) -> Cimpl
 """
 FUNCTION TEST CALLS:
 """
-starter = Cimpl.load_image('miss_sullivan.png')
-Cimpl.show(starter)
+#starter = Cimpl.load_image('miss_sullivan.png')
+#Cimpl.show(starter)
 """
 grey = grayscale(Cimpl.load_image('miss_sullivan.png'))
 Cimpl.show(grey)
@@ -280,9 +285,11 @@ Cimpl.show(vert_img)
 hori_img = flip_horizontal(Cimpl.load_image('miss_sullivan.png'))
 Cimpl.show(hori_img)
 """
+"""
 two_toned = two_tone(starter, input('Pick tone_1: '), input('Pick tone_2'))
 Cimpl.show(two_toned)
 
 three_toned = three_tone(starter, input('Pick tone_1'), input('Pick tone_2'), input('Pick tone_3'))
 Cimpl.show(three_toned)
 
+"""

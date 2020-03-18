@@ -3,6 +3,8 @@ import Cimpl
 
 def posterize(img: Cimpl.Image) -> Cimpl.Image:
     """
+    Author: Zakaria Ismail
+
     RETURNS an image where
     img has its RGB channels
     set to the midpoint of quadrants:
@@ -11,7 +13,8 @@ def posterize(img: Cimpl.Image) -> Cimpl.Image:
 
     img is a Cimpl.Image object passed to the function
 
-    (How do I write the examples?)
+    >>> posterize(Cimpl.create_image(100, 100))
+    -> A posterized image is returned
     """
     img = Cimpl.copy(img)
     for x, y, col in img:
@@ -24,9 +27,17 @@ def posterize(img: Cimpl.Image) -> Cimpl.Image:
 
 def __adjust_component__(num: int) -> int:
     """
+    Author: Zakaria Ismail
+
     RETURNS the midpoint of
     one of the following ranges,
-    after being PASSED.
+        0-63, 64-127, 128-191, 192-255
+    after being PASSED num.
+
+    num is an integer between 0-255.
+
+    >>> __adjust_component__(5)
+    31
     """
     ranges = [63,127,191,255]
     mid = [31, 95, 159, 223]

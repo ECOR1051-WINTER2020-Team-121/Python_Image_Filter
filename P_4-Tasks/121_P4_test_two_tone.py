@@ -1,6 +1,6 @@
 import Cimpl
 
-from tone_placeholder import two_tone
+from T121_P4_two_tone import two_tone
 
 
 def check_equal(description: str, outcome, expected) -> None:
@@ -42,6 +42,8 @@ def check_equal(description: str, outcome, expected) -> None:
 # Naming is to be determined (Correct format uncertain)
 def test_two_tone() -> None:
     """
+    Author: Zakaria Ismail
+
     Tests FUNCTION two_tone.
 
     >>> test_two_tone()

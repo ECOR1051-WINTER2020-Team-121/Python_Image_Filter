@@ -1,6 +1,6 @@
 import Cimpl
 
-from tone_placeholder import three_tone
+from T121_P4_three_tone import three_tone
 
 
 def check_equal(description: str, outcome, expected) -> None:
@@ -42,6 +42,8 @@ def check_equal(description: str, outcome, expected) -> None:
 # Naming is to be determined (Correct format uncertain)
 def test_three_tone() -> None:
     """
+    Author: Zakaria Ismail
+
     Tests FUNCTION three_tone.
 
     >>> test_three_tone()

@@ -20,6 +20,9 @@ def posterize(img: Cimpl.Image) -> Cimpl.Image:
     img is a Cimpl.Image object passed to the function
 
     >>> posterize(Cimpl.create_image(100, 100))
+    -> A posterized white image is returned
+
+    >>> posterize(Cimpl.load_image(Cimpl.choose_file()))
     -> A posterized image is returned
     """
     img = Cimpl.copy(img)
@@ -50,3 +53,17 @@ def __adjust_component__(num: int) -> int:
     for i in range(len(ranges)):
         if num <= ranges[i]:
             return mid[i]
+
+
+#filename = input("Input image filename: ")  # used for mac
+print("SELECT AN IMAGE FILE: ")
+filename = Cimpl.choose_file()
+
+original = Cimpl.load_image(filename)
+print("--DISPLAYING ORIGINAL IMAGE--")
+Cimpl.show(original)
+
+print("--PROCESSING POSTERIZED IMAGE--")
+posterized = posterize(original)
+print("--DISPLAYING POSTERIZED IMAGE--")
+Cimpl.show(posterized)

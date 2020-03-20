@@ -1,6 +1,6 @@
 import Cimpl
 import simple_Cimpl_filters
-import sepia_code
+import T121_sepia
 def test_sepia(outcome:Cimpl.Image,original_image:Cimpl.Image)-> bool:
     """the author: Ibrahim Kasim
     returns boolean statament, two image objects passed 
@@ -8,8 +8,7 @@ def test_sepia(outcome:Cimpl.Image,original_image:Cimpl.Image)-> bool:
 
     """
     if type(outcome)!= type(original_image):
-        print("images intended for comparison do not match in type:")
-        return False
+        print("images intended for comparison do not match in type:",False)
     
     
     expected = simple_Cimpl_filters.grayscale(original_image) 
@@ -36,13 +35,12 @@ def test_sepia(outcome:Cimpl.Image,original_image:Cimpl.Image)-> bool:
                 test_increase += 1 
     
     if test_increase > 0:
-        print("The test is failed,your comparison returned:")
-        return False
+        print("The test is failed,your comparison returned:",False)
     else:
-        print("The test is passed,your comparison returned:")
-        return True
+        print("The test is passed,your comparison returned:",True)
+        
 
-outcome_1 = sepia_code.sepia_channel(Cimpl.load_image(Cimpl.choose_file()))
+outcome_1 = T121_sepia.sepia_channel(Cimpl.load_image(Cimpl.choose_file()))
 original_image_1 = Cimpl.load_image(Cimpl.choose_file())
 test_sepia(outcome_1,original_image_1)
 

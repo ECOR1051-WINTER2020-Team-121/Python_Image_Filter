@@ -17,13 +17,14 @@ def detect_edges(original_image:Cimpl.Image,threshold:float)-> Cimpl.Image:
             average_top = (pixel_top[0] + pixel_top[1] + pixel_top[2]) / 3 
             average_bottom = (pixel_bottom[0] + pixel_bottom[1] + pixel_bottom[2]) / 3 
             difference = abs(average_bottom - average_top)
-            
-            if difference > threshold:
+            if x == total_width:
+                Cimpl.set_color(new_image,x,y,whited)
+
+            elif difference > threshold:
                 Cimpl.set_color(new_image,x,y,blacked) 
             else:
                 Cimpl.set_color(new_image,x,y,whited)
-        elif x == total_width:
-            Cimpl.set_color(new_image,x,y,whited) 
+         
     Cimpl.show(new_image)
 
 

@@ -43,6 +43,10 @@ def __adjust_component__(num: int) -> int:
 
 def test_posterize():
     
+    """
+    
+    
+    """
     #testing all three channels at the same time for each case as it would be 
     #easier and less tedious as opposed to replicating each combination which would
     #be unnessessary and a waste of time.
@@ -80,12 +84,47 @@ def test_posterize():
     posterized = posterize(normal)
     
     for x, y, col in posterized:
-        check_equal(expected,posterized)
-        check_equal(normal,posterized)
+        check_equal(Cimpl.get_color(expected,x,y),Cimpl.get_color(posterized,x,y))
+        check_equal(Cimpl.get_color(normal,x,y),Cimpl.get_color(posterized,x,y))
 
         
 
+def check_equal(description: str, outcome, expected) -> None:
+    """
+    Print a "passed" message if outcome and expected have same type and
+    are equal (as determined by the == operator); otherwise, print a
+    "fail" message.
 
+    Parameter description should provide information that will help us
+    interpret the test results; e.g., the call expression that yields
+    outcome.
+
+    Parameters outcome and expected are typically the actual value returned
+    by a call expression and the value we expect a correct implementation
+    of the function to return, respectively. Both parameters must have the same
+    type, which must be a type for which == is used to determine if two values
+    are equal. Don't use this function to check if floats, lists of floats,
+    tuples of floats, etc. are equal.
+    """
+    outcome_type = type(outcome)
+    expected_type = type(expected)
+    if outcome_type != expected_type:
+
+        # The format method is explained on pages 119-122 of
+        # 'Practical Programming', 3rd ed.
+
+        print("{0} FAILED: expected ({1}) has type {2}, " \
+              "but outcome ({3}) has type {4}".
+              format(description, expected, str(expected_type).strip('<class> '),
+                     outcome, str(outcome_type).strip('<class> ')))
+    elif outcome != expected:
+        print("{0} FAILED: expected {1}, got {2}".
+              format(description, expected, outcome))
+    else:
+        print("{0} PASSED".format(description))
+    print("------")
+
+'''
 def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> Cimpl.Image:
     
     """
@@ -127,6 +166,7 @@ def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> Cimpl.Image:
 #this will print false as the orginal image is not the same as the outcome image
 #as the outcome image has a red filter on it. 
 #print(check_equal("p2-original.jpg","outcome.jpg"))
-
+'''
 posterize(Cimpl.load_image("miss_sullivan.jpg"))
 test_posterize()
+

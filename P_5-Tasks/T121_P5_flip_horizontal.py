@@ -21,3 +21,6 @@ def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
             Cimpl.set_color(copy, x, y, Cimpl.get_color(img, wth-x-1, y))
             Cimpl.set_color(copy, wth-x-1, y, Cimpl.get_color(img, x, y))
     return copy
+
+
+

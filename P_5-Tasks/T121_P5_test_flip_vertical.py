@@ -1,5 +1,6 @@
 
 import Cimpl
+from T121_P5_flip_vertical import flip_vertical
 
 
 def check_equal(description: str, outcome, expected) -> None:
@@ -54,12 +55,77 @@ def test_flip_vertical() -> None:
     #   3. Center pixels when height is ODD (1 pixel)
     #   4. Center pixels when height is EVEN (2 pixels)
 
-    # However, case #3 and #4 cannot allow testing for an odd and an even width image, so there will be TWO images tested
+    # However, case #3 and #4 cannot allow testing for an odd and an even width image,
+    # so there will be TWO images tested
+
     #   Image 1: Tests border, non-border, and ODD heighted center pixel    (5 pixels)  1x5
     #   Image 2: Tests border, non-border, and EVEN heighted center pixel   (6 pixels)  1x6
 
-    # IMAGE 1:
-    #   Border: (255, 255, 255), (0, 0, 0) -> (0, 0, 0), (255, 255, 255)
-    #   Non-border: (
+    # NOTE: Listed pixels are ordered from top to bottom
+    # (i.e the first border pixel is the top, while second border is bottom)
 
-    # 0. Border pixel test:
+    # IMAGE 1 (5 pixels):
+    #   Border: (0, 0, 0), (4, 4, 4) -> (4, 4, 4), (0, 0, 0)
+    #   Non-border: (1, 1, 1), (3, 3, 3) -> (3, 3, 3), (1, 1, 1)
+    #   Center: (2, 2, 2) -> (2, 2, 2)
+
+    # IMAGE 2 (6 pixels):
+    #   Border: (0, 0, 0), (5, 5, 5) -> (5, 5, 5), (0, 0, 0)
+    #   Non-border: (1, 1, 1), (4, 4, 4) -> (4, 4, 4), (1, 1, 1)
+    #   Center: (2, 2, 2), (3, 3, 3) -> (3, 3, 3), (2, 2, 2)
+
+    # ORIGINAL IMAGE 1
+    original_1 = Cimpl.create_image(1, 5)
+    Cimpl.set_color(original_1, 0, 0, Cimpl.Color(0, 0, 0))
+    Cimpl.set_color(original_1, 0, 1, Cimpl.Color(1, 1, 1))
+    Cimpl.set_color(original_1, 0, 2, Cimpl.Color(2, 2, 2))
+    Cimpl.set_color(original_1, 0, 3, Cimpl.Color(3, 3, 3))
+    Cimpl.set_color(original_1, 0, 4, Cimpl.Color(4, 4, 4))
+
+    # OUTCOME IMAGE 1
+    outcome_1 = flip_vertical(original_1)
+
+    # EXPECTED IMAGE 1
+    expected_1 = Cimpl.create_image(1, 5)
+    Cimpl.set_color(expected_1, 0, 0, Cimpl.Color(4, 4, 4))
+    Cimpl.set_color(expected_1, 0, 1, Cimpl.Color(3, 3, 3))
+    Cimpl.set_color(expected_1, 0, 2, Cimpl.Color(2, 2, 2))
+    Cimpl.set_color(expected_1, 0, 3, Cimpl.Color(1, 1, 1))
+    Cimpl.set_color(expected_1, 0, 4, Cimpl.Color(0, 0, 0))
+
+    # ORIGINAL IMAGE 2
+    original_2 = Cimpl.create_image(1, 6)
+    Cimpl.set_color(original_2, 0, 0, Cimpl.Color(0, 0, 0))
+    Cimpl.set_color(original_2, 0, 1, Cimpl.Color(1, 1, 1))
+    Cimpl.set_color(original_2, 0, 2, Cimpl.Color(2, 2, 2))
+    Cimpl.set_color(original_2, 0, 3, Cimpl.Color(3, 3, 3))
+    Cimpl.set_color(original_2, 0, 4, Cimpl.Color(4, 4, 4))
+    Cimpl.set_color(original_2, 0, 5, Cimpl.Color(5, 5, 5))
+
+    # OUTCOME IMAGE 2
+    outcome_2 = flip_vertical(original_2)
+
+    # EXPECTED IMAGE 2
+    expected_2 = Cimpl.create_image(1, 6)
+    Cimpl.set_color(expected_2, 0, 0, Cimpl.Color(5, 5, 5))
+    Cimpl.set_color(expected_2, 0, 1, Cimpl.Color(4, 4, 4))
+    Cimpl.set_color(expected_2, 0, 2, Cimpl.Color(3, 3, 3))
+    Cimpl.set_color(expected_2, 0, 3, Cimpl.Color(2, 2, 2))
+    Cimpl.set_color(expected_2, 0, 4, Cimpl.Color(1, 1, 1))
+    Cimpl.set_color(expected_2, 0, 5, Cimpl.Color(0, 0, 0))
+
+    # IMAGE 1 TESTS
+    print("\n---TESTING IMAGE 1---\n")
+    for x, y, col in outcome_1:
+        check_equal("Checking pixel @({},{})".format(x, y), col, Cimpl.get_color(expected_1, x, y))
+
+    # IMAGE 2 TESTS
+    print("\n---TESTING IMAGE 2---\n")
+    for x, y, col in outcome_2:
+        check_equal("Checking pixel @({},{})".format(x, y), col, Cimpl.get_color(expected_2, x, y))
+
+
+test_flip_vertical()
+
+
+

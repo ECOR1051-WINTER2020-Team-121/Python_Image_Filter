@@ -1,13 +1,16 @@
 from Cimpl import *
 from simple_Cimpl_filters import grayscale
 
+
 original_image =  load_image('p2-original,png.png')
 raw_image=copy(original_image)
 new_image=grayscale(raw_image)
 show(new_image)
 def sepia(image):
-    """return a sepia image
     """
+    Author: YANGLONG LIU
+    return a grayscaled Image object after being passed a Image object.
+    """    
     hgt=get_height(image)
     wth=get_width(image)
     for x in range(wth):
@@ -28,7 +31,9 @@ def sepia(image):
 sepia(new_image)
 show(new_image)
     
-                
+
+
+
             
            
             

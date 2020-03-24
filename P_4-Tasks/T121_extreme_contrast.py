@@ -18,3 +18,4 @@ def extreme_contrast(img: Cimpl.Image) -> Cimpl.Image:
                 channels += [255]
         Cimpl.set_color(copy, x, y, Cimpl.create_color(channels[0], channels[1], channels[2]))
     return copy
+

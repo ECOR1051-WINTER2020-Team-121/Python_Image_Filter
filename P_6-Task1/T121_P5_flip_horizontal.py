@@ -8,7 +8,9 @@ def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
 
     RETURNS a Cimpl.Image
     that was flipped, after
-    being PASSED a Cimpl.Image object
+    being PASSED img
+
+    img is a Cimpl.Image object
 
     >>> flip_horizontal(Cimpl.load_image(Cimpl.choose_file()))
     """

@@ -19,9 +19,12 @@ def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     return copy
 
 
-def check_equal(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
+def check_equal_channel_colours(expected: Cimpl.Image, outcome: Cimpl.Image) -> None:
     """
     Author: Zakaria Ismail
+
+    NOTE: THIS WAS DONE BEFORE WE WERE INFORMED TO USE THE check_equal
+    SUPPLIED BY THE PROFESSORS
 
     Checks if PARAMETERS expected and outcome,
     both Cimpl.Image objects are:

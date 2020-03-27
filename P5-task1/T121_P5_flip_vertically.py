@@ -21,16 +21,16 @@ def flip_vertical(img: Cimpl.Image) -> Cimpl.Image:
     width1 = Cimpl.get_width(img) #get image width
 
     for y in range(height1):
+        
         for x in range(width1):
 
-            change = height1 - y - 1 #editing height to flip vertically
+            change = height1 - y - 1
+            #editing height to flip vertically (change)
             #change implemented below to make changes to the actual image passed 
-            #in
+            #in below 
             Cimpl.set_color(newimage, x, y, Cimpl.get_color(img, x, change))
             Cimpl.set_color(newimage, x, change, Cimpl.get_color(img, x, y))
 
-
     return newimage
-
 
 flip_vertical(Cimpl.load_image("miss_sullivan.jpg"))

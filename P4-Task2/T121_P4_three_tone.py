@@ -11,6 +11,8 @@ def _brightness(r: int, g: int, b: int) -> int:
     author: Himanshu Singh
     this returns the brightness of a pixel at a certain (x,y) coordinate. 
     
+    This is a helper function
+    
     >>>_brightness(255,255,255)
     255
     """

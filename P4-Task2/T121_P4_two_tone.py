@@ -12,6 +12,8 @@ def _brightness(r: int, g: int, b: int) -> int:
     Author: Himanshu Singh
     this returns the brightness of a pixel at a certain (x,y) coordinate.
     
+    This is a helper function
+    
     >>>_brightness(255,255,255)
     255
     """
@@ -30,7 +32,8 @@ def two_tone(img: Cimpl.Image, col1: str, col2: str) -> Cimpl.Image:
     
     col1 and col2 are the strings representing the image.
     
-    >>>two_tone(Cimpl.load_image("miss_sullivan.jpg"), "black", "white")
+    >>>two_tone(Cimpl.load_image("image.jpg"), "col1", "col2")
+    returns image with a two toned filter
 
     """
 

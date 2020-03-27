@@ -33,7 +33,7 @@ def detect_edges_better(img: Cimpl.Image, thres: int) -> Cimpl.Image:
     return img
 
 
-def check_equal(expected, outcome):
+def check_equal_ibrahim(expected, outcome):
     """
     The Author: Ibrahim Kasim
     check_equal(expected:Cimpl.Image,outcome:Cimpl.Image) -> Bool:
@@ -143,7 +143,8 @@ def test_imp_edge_better() -> bool:
     # the last row has to be whited
     Cimpl.set_color(original_image, 5, 1, Cimpl.create_color(255, 255, 255))
 
-    check_equal(expected, detect_edges_better(original_image, 4))
+    check_equal_ibrahim(expected, detect_edges_better(original_image, 4))
+
 
 def test_sepia() -> bool:
     """
@@ -164,6 +165,6 @@ def test_sepia() -> bool:
     Cimpl.set_color(expected, 3, 0, Cimpl.create_color(219, 191, 191))  # the red component multipled by 1.15, blue by 0.85 since it is filtered to medium gray.
     Cimpl.set_color(expected, 4, 0, Cimpl.create_color(226, 210, 195))  # the red component multipled by 1.08, blue by 0.93 since it is filtered to light gray.
 
-    check_equal(expected, sepia(original_image))
+    check_equal_ibrahim(expected, sepia(original_image))
 
 

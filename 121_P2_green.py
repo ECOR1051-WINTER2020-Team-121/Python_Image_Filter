@@ -16,15 +16,12 @@ def green_channel():
         green_color = Cimpl.create_color(0,g,0)
         Cimpl.set_color(new_image, x,y, green_color)
     
-    Cimpl.show(new_image) 
     return new_image
     
 def check_equal(expected, outcome):
     
     var1 = Cimpl.load_image(expected)
     var2 = Cimpl.load_image(outcome)
-    Cimpl.show(var1)
-    Cimpl.show(var2)
     """
     The Author: Ibrahim Kasim
     check_equal(expected:Cimpl.Image,outcome:Cimpl.Image) -> Bool:
@@ -47,7 +44,7 @@ def check_equal(expected, outcome):
         return True
 
 #Testing:        
-#green_channel()
+green_channel()
 print(check_equal(Cimpl.choose_file(),Cimpl.choose_file()))
 
 

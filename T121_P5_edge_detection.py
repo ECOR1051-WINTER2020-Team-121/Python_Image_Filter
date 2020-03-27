@@ -26,9 +26,7 @@ def detect_edges(original_image: Cimpl.Image, threshold: float) -> Cimpl.Image:
             else:
                 Cimpl.set_color(new_image, x, y, whited)
 
-    Cimpl.show(new_image)
-
-
+#function call:
 var1 = Cimpl.choose_file()
 original_image = Cimpl.load_image(var1)
 detect_edges(original_image, 4)

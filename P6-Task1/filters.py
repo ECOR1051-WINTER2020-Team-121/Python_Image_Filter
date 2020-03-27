@@ -54,20 +54,19 @@ def three_tone(img: Cimpl.Image, col1: str, col2: str, col3: str) -> Cimpl.Image
         bright = _brightness(r, g, b)
 
         if bright <= 84:
-        #if brightness is below or equal to 84 change the color at said pixel to
-        #col1
+            # if brightness is below or equal to 84 change the color at said pixel to
+            # col1
             Cimpl.set_color(newimage, x, y, COLORS[col1])
 
         elif 84 < bright <= 170:
-        #if brightness is below or equal to 170 but higher than 84 change the   
-        # color at said pixel to col2
+            # if brightness is below or equal to 170 but higher than 84 change the
+            # color at said pixel to col2
             Cimpl.set_color(newimage, x, y, COLORS[col2])
 
         else:
-        #else set color to col3
+            # else set color to col3
             Cimpl.set_color(newimage, x, y, COLORS[col3])
 
-   
     return newimage
 
 
@@ -100,22 +99,20 @@ def two_tone(img: Cimpl.Image, col1: str, col2: str) -> Cimpl.Image:
 
     }
 
-    #image = load_image(FILENAME)
+    # image = load_image(FILENAME)
     newimage = Cimpl.copy(img)
 
     for x, y, (r, g, b) in img:
         bright = _brightness(r, g, b)
-        
-        
-        if bright <= 127: 
-        #if calculated brightness at said pixel is below 127 set color to col[1]        
+
+        if bright <= 127:
+            # if calculated brightness at said pixel is below 127 set color to col[1]
             black = Cimpl.create_color(0, 0, 0)
             Cimpl.set_color(newimage, x, y, COLORS[col1])
 
         else:
-        #else set color to col2 at said pixel
+            # else set color to col2 at said pixel
             Cimpl.set_color(newimage, x, y, COLORS[col2])
-
 
     return newimage
 
@@ -131,23 +128,21 @@ def flip_vertical(img: Cimpl.Image) -> Cimpl.Image:
     """
     newimage = Cimpl.copy(img)
 
-    height1 = Cimpl.get_height(img) #get image height
+    height1 = Cimpl.get_height(img)  # get image height
 
-    width1 = Cimpl.get_width(img) #get image width
+    width1 = Cimpl.get_width(img)  # get image width
 
     for y in range(height1):
-        
-        for x in range(width1):
 
+        for x in range(width1):
             change = height1 - y - 1
-            #editing height to flip vertically (change)
-            #change implemented below to make changes to the actual image passed 
-            #in below 
+            # editing height to flip vertically (change)
+            # change implemented below to make changes to the actual image passed
+            # in below
             Cimpl.set_color(newimage, x, y, Cimpl.get_color(img, x, change))
             Cimpl.set_color(newimage, x, change, Cimpl.get_color(img, x, y))
 
     return newimage
-
 
 
 flip_vertical(Cimpl.load_image("miss_sullivan.jpg"))

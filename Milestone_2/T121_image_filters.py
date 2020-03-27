@@ -1,5 +1,10 @@
+"""
+Team Identifier: 121
+Contributing Members: Zakaria Ismail, Ibrahim Kasim, Himanshu Singh, Yanglong Liu
+"""
 
 import Cimpl
+
 
 def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl.Image:
     """
@@ -77,10 +82,10 @@ def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
     copy = Cimpl.copy(img)
     for y in range(hgt):
         for x in range(mid_x):
-            #r1, g1, b1 = Cimpl.get_color(img, x, y)
-            #r2, g2, b2 = Cimpl.get_color(img, x, hgt-y)
-            Cimpl.set_color(copy, x, y, Cimpl.get_color(img, wth-x-1, y))
-            Cimpl.set_color(copy, wth-x-1, y, Cimpl.get_color(img, x, y))
+            # r1, g1, b1 = Cimpl.get_color(img, x, y)
+            # r2, g2, b2 = Cimpl.get_color(img, x, hgt-y)
+            Cimpl.set_color(copy, x, y, Cimpl.get_color(img, wth - x - 1, y))
+            Cimpl.set_color(copy, wth - x - 1, y, Cimpl.get_color(img, x, y))
     return copy
 
 
@@ -122,11 +127,12 @@ def __adjust_component__(num: int) -> int:
     >>> __adjust_component__(5)
     31
     """
-    ranges = [63,127,191,255]
+    ranges = [63, 127, 191, 255]
     mid = [31, 95, 159, 223]
     for i in range(len(ranges)):
         if num <= ranges[i]:
             return mid[i]
+
 
 def green_channel():
     """
@@ -136,18 +142,19 @@ def green_channel():
     is desired for filtering.
     
     """
-    
+
     image_file = Cimpl.choose_file()
     original_image = Cimpl.load_image(image_file)
     new_image = Cimpl.copy(original_image)
     for pixel in original_image:
-        x,y,(r,g,b) = pixel
-        green_color = Cimpl.create_color(0,g,0)
-        Cimpl.set_color(new_image, x,y, green_color)
-    
+        x, y, (r, g, b) = pixel
+        green_color = Cimpl.create_color(0, g, 0)
+        Cimpl.set_color(new_image, x, y, green_color)
+
     return new_image
-    
-def extreme_channel(original_image: Cimpl.Image) -> Cimpl.Image:
+
+
+def extreme_contrast(original_image: Cimpl.Image) -> Cimpl.Image:
     """
     The author: Ibrahim Kasim
     returns image object with extreme contrast filter apllied.
@@ -173,6 +180,8 @@ def extreme_channel(original_image: Cimpl.Image) -> Cimpl.Image:
                 maximized_contrast = Cimpl.create_color(list_colour[0], list_colour[1], list_colour[2])
                 Cimpl.set_color(new_image, x, y, maximized_contrast)
             i += 1
+    return new_image
+
 
 def detect_edges(original_image: Cimpl.Image, threshold: float) -> Cimpl.Image:
     """ The author: Ibrahim Kasim
@@ -199,6 +208,7 @@ def detect_edges(original_image: Cimpl.Image, threshold: float) -> Cimpl.Image:
             else:
                 Cimpl.set_color(new_image, x, y, whited)
 
+
 def sepia(image):
     """
     Author: YANGLONG LIU
@@ -208,7 +218,7 @@ def sepia(image):
     wth = Cimpl.get_width(image)
     for x in range(wth):
         for y in range(hgt):
-            red, green, blue = Cimpl.get_color(new_image, x, y)
+            red, green, blue = Cimpl.get_color(image, x, y)
             if red < 63:
                 blue = blue * 0.9
                 red = red * 1.1
@@ -219,11 +229,11 @@ def sepia(image):
                 blue = blue * 0.93
                 red = red * 1.08
             new_color = Cimpl.create_color(red, blue, green)
-            Cimpl.set_color(new_image, x, y, new_color)
-    return new_image
+            Cimpl.set_color(image, x, y, new_color)
+    return image
 
 
-def detect_edges_better(image: Image, threshold: int) -> Image:
+def detect_edges_better(image: Cimpl.Image, threshold: int) -> Cimpl.Image:
     """
     Author:YANGLONG LIU 101141366
     returns a Image with only black and white color depending on the comparsion 
@@ -232,8 +242,8 @@ def detect_edges_better(image: Image, threshold: int) -> Image:
     >>>show(improved_detect_image) which returned image looks like pencil skectches.
     """
     new_image = Cimpl.copy(image)
-    wdt = Cimpl.get_width(raw_image)
-    hgt = Cimpl.get_height(raw_image)
+    wdt = Cimpl.get_width(new_image)
+    hgt = Cimpl.get_height(new_image)
     for x in range(wdt):
         for y in range(hgt):
             if y < hgt - 1:  # make a confirmation for the bottom line is not in this range
@@ -251,19 +261,20 @@ def detect_edges_better(image: Image, threshold: int) -> Image:
                 if contrast1 > threshold or contrast2 > threshold:  # make a comparsion the contrast with threshold
                     red, green, blue = 0, 0, 0  # if the contrast is higher, change color to black.
                     black = Cimpl.create_color(red, green, blue)
-                    Cimpl.set_color(Cimpl.new_image, x, y, black)
+                    Cimpl.set_color(new_image, x, y, black)
 
                 else:
                     red, green, blue = 255, 255, 255  # if the contrast is lower, change color to white.
                     white = Cimpl.create_color(red, green, blue)
-                    Cimpl.set_color(Cimpl.new_image, x, y, white)
+                    Cimpl.set_color(new_image, x, y, white)
 
             elif y == hgt - 1:  # the bottom row of the image which the bottom line is in this range
                 red, green, blue = 255, 255, 255  # change to white simply.
                 white = Cimpl.create_color(red, green, blue)
-                Cimpl.set_color(Cimpl.new_image, x, y, white)
+                Cimpl.set_color(new_image, x, y, white)
 
     return new_image
+
 
 def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
@@ -281,6 +292,7 @@ def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
     for x, y, (r, g, b) in img:
         Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
     return copy
+
 
 def _brightness(r: int, g: int, b: int) -> int:
     """

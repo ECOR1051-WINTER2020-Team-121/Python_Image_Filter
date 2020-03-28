@@ -1,5 +1,6 @@
 import Cimpl
 
+
 def extreme_contrast(img: Cimpl.Image) -> Cimpl.Image:
     """
     RETURNS a Cimpl.Image object

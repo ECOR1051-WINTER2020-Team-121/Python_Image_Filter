@@ -5,8 +5,8 @@ def detect_edges(img: Cimpl.Image, thres: int) -> Cimpl.Image:
     """
     RETURNS a Cimpl.Image object
     whose pixels have been changed
-    to black or white depending on whether
-    it is defined an edge pixel or not, after
+    to black or white dependent on its
+    contrast with the pixel below it after
     being passed img and thres
 
     img is a Cimpl.Image object

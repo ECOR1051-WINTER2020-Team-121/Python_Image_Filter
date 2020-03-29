@@ -12,6 +12,7 @@ def load()-> Cimpl.Image:
     var1 = Cimpl.choose_file() 
     image_selected = Cimpl.load_image(var1)
     Cimpl.show(image_selected)
+    return image_selected
 
 def save_as(image_selected:Cimpl.Image) -> None:
     """ The author: Ibrahim Kasim
@@ -112,39 +113,47 @@ def main()-> Cimpl.Image:
         selected_option = str(input())
 
         if selected_option == "l)" or selected_option == "L)":
-            load()
+            selected_image = load()
 
         elif (selected_option == "s)" or selected_option == "S)") and image_selected != 0:
             save_as(image_selected)
             
-        #elif (selected_option == "2)") and image_selected != 0:
+        #elif selected_option == "2)") and image_selected != 0:
             #print("please type the")
             #image_selected = two_tone(image_selected,,)
+            #Cimpl.show(image_selected)
         
-        #elif (selected_option == "3)") and image_selected != 0:
+        #elif selected_option == "3)" and image_selected != 0:
             #image_selected = three_tone(image_selected,,,)
+            #Cimpl.show(image_selected)
         
         elif (selected_option == "x)" or selected_option == "X)") and image_selected != 0:
             image_selected = extreme_contrast(image_selected)
+            Cimpl.show(image_selected)
         
         elif (selected_option == "t)" or selected_option == "T)") and image_selected != 0:
             image_selected = sepia(image_selected)
+            Cimpl.show(image_selected)
         
         elif (selected_option == "P)" or selected_option == "p)") and image_selected != 0:
             image_selected = posterize(image_selected)
+            Cimpl.show(image_selected)
         
         elif (selected_option == "e)" or selected_option == "E)") and image_selected != 0: 
             image_selected = detect_edges(image_selected,threshold_value())
+            Cimpl.show(image_selected)
         
         elif (selected_option == "i)" or selected_option == "I)") and image_selected != 0:
             image_selected = detect_edges_better(image_selected,threshold_value())
+            Cimpl.show(image_selected)
         
         elif (selected_option == "v)" or selected_option == "V)") and image_selected !=0: 
             image_selected = flip_vertical(image_selected)
+            Cimpl.show(image_selected)
         
         elif (selected_option == "h)" or selected_option == "H)") and image_selected != 0: 
             image_selected = flip_horizontal(image_selected)
-        
+            Cimpl.show(image_selected)
         test_variable = 0
         if selected_option == "Q)" or selected_option == "q)":
             test_variable = 1

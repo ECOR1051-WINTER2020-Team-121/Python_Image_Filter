@@ -49,7 +49,7 @@ def print_menu()-> str:
     print("{}  {}  {}".format("2)-tone","3)-tone","X)treme contrast"),end = "")
     print(" {}  {}".format("T)int sepia","P)osterize"))
     print("{}  {}  {}".format("E)dge detect","I)mproved edge detect","V)ertical flip"),end="")
-    print("{}".format("H)orizontal flip"))
+    print("  {}".format("H)orizontal flip"))
     print("{}".format("Q)uit"))
     print("")
     

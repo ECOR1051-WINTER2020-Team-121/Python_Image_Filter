@@ -180,8 +180,5 @@ def prompt_threshold() -> int:
     return int(threshold)
 
 
-
-
-
 main()
 print("Program has ended.")

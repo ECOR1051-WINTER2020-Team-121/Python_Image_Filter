@@ -55,44 +55,27 @@ def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
     return copy
 
 
-def combine(r_img: Cimpl.Image, g_img: Cimpl.Image, b_img: Cimpl.Image) -> Cimpl.Image:
+def combine(img_1: Cimpl.Image, img_2: Cimpl.Image, img_3: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
-    RETURNS an ImageObject where
-    three Cimpl.Image objects are passed.
-    Combines the color channels
-    of the three arguments.
+    RETURNS a Cimpl.Image object
+    where color channel values of
+    img_1, img_2, and img_3 have been combined.
 
-    >>> Cimpl.show(combine(Cimpl.load_image('red_image.png'), Cimpl.load_image('green_image.png'), Cimpl.load_image('blue_image.png'))
-    -> a combination of the filtered images will be displayed.
+    img_1, img_2, and img_3 are Cimpl.Image objects PASSED to the function.
+
+    >>> combine(Cimpl.create_image(1,1), Cimpl.create_image(1,1), Cimpl.create_image(1,1))
     """
-    base = Cimpl.copy(r_img)
+    base = Cimpl.copy(img_1)
 
     for x, y, (r, g, b) in base:
-        g_r, g_g, g_b = Cimpl.get_color(g_img, x, y)
-        b_r, b_g, b_b = Cimpl.get_color(b_img, x, y)
-        color = Cimpl.create_color(compute_sum(r, g_r, b_r), compute_sum(g, g_g, b_g), compute_sum(b, g_b, b_b))
+        r3, g3, b3 = Cimpl.get_color(img_3, x, y)
+        r2, g2, b2 = Cimpl.get_color(img_2, x, y)
+        color = Cimpl.Color(r+r2+r3, g+g2+g3, b+b2+b3)
         Cimpl.set_color(base, x, y, color)
 
     return base
-
-
-def compute_sum(r: int, g: int, b: int) -> int:
-    """
-    Author: Zakaria Ismail
-
-    RETURNS the sum of three numbers
-    PASSED. If sum exceeds 255, then
-    the sum is 255.
-
-    >> compute_sum(5,6,7)
-    18
-    """
-    if r + g + b <= 255:
-        return r + g + b
-    else:
-        return 255
 
 
 def detect_edges(img: Cimpl.Image, thres: int) -> Cimpl.Image:
@@ -187,9 +170,10 @@ def extreme_contrast(img: Cimpl.Image) -> Cimpl.Image:
 
 def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
     """
-    RETURNS a Cimpl.Image
-    that was flipped, after
-    being PASSED a Cimpl.Image object
+    RETURNS a Cimpl.Image object
+    where img is flipped horizontally
+
+    >>> flip_horizontal(Cimpl.create_image(1,1))
     """
     hgt = Cimpl.get_height(img)
     wth = Cimpl.get_width(img)
@@ -199,6 +183,7 @@ def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
         for x in range(mid_x):
             Cimpl.set_color(copy, x, y, Cimpl.get_color(img, wth-x-1, y))
             Cimpl.set_color(copy, wth-x-1, y, Cimpl.get_color(img, x, y))
+
     return copy
 
 
@@ -206,7 +191,7 @@ def posterize(img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
-    RETURNS an image where
+    RETURNS a Cimpl.Image where
     img has its RGB channels
     set to the midpoint of quadrants:
         0..63, 64..127, 128..191, and 192..255
@@ -215,7 +200,6 @@ def posterize(img: Cimpl.Image) -> Cimpl.Image:
     img is a Cimpl.Image object passed to the function
 
     >>> posterize(Cimpl.load_image(Cimpl.choose_file()))
-    -> A posterized image is returned
     """
     img = Cimpl.copy(img)
     for x, y, col in img:

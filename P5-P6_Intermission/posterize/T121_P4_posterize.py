@@ -11,7 +11,7 @@ def posterize(img: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Zakaria Ismail
 
-    RETURNS an image where
+    RETURNS a Cimpl.Image where
     img has its RGB channels
     set to the midpoint of quadrants:
         0..63, 64..127, 128..191, and 192..255
@@ -20,7 +20,6 @@ def posterize(img: Cimpl.Image) -> Cimpl.Image:
     img is a Cimpl.Image object passed to the function
 
     >>> posterize(Cimpl.load_image(Cimpl.choose_file()))
-    -> A posterized image is returned
     """
     img = Cimpl.copy(img)
     for x, y, col in img:

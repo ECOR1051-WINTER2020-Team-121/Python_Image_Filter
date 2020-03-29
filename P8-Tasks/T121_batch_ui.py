@@ -44,6 +44,7 @@ def parse_linedata(linedata: str) -> dict:
     line is a str that contains text file data
 
     >>> parse_linedata('miss_sullivan.png batch_result.png 2 X V P')
+    {"filename": "miss_sullivan.png", "save_file_as": batch_result.png", "commands": ['2', 'X', 'V', 'P']}
     """
     datalist = linedata.split()
     data = {
@@ -97,6 +98,8 @@ def apply_filters(data: dict) -> Cimpl.Image:
 
 def save_image(image: Cimpl.Image, filename: str) -> None:
     """
+    Author: Zakaria Ismail
+
     RETURNS None and saves image
     to the directory using information
     from filename
@@ -107,11 +110,6 @@ def save_image(image: Cimpl.Image, filename: str) -> None:
     >>> save_image(Cimpl.create_image(1,1), 'filename.png')
     """
     Cimpl.save_as(image, filename)
-
-
-
-
-
 
 
 main()

@@ -113,7 +113,7 @@ def main()-> Cimpl.Image:
         selected_option = str(input())
 
         if selected_option == "l)" or selected_option == "L)":
-            selected_image = load()
+            image_selected = load()
 
         elif (selected_option == "s)" or selected_option == "S)") and image_selected != 0:
             save_as(image_selected)

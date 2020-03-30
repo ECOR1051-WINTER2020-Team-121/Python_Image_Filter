@@ -156,9 +156,11 @@ def main()-> Cimpl.Image:
             image_selected = flip_horizontal(image_selected)
             Cimpl.show(image_selected)
         test_variable = 0
+        
         if selected_option == "Q)":
             test_variable = 1
         command_check = loop_commands(selected_option)
+        
         if command_check == False:
             print("no such command")
         elif (command_check == True) and test_variable == 0 and image_selected == 0:

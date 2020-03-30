@@ -14,8 +14,9 @@ def extreme_contrast(original_image: Cimpl.Image) -> Cimpl.Image:
     max_pixel = 255
     for x, y, colour_tuple in original_image:
         i = 0
+        list_colour = [0,0,0]
         for component in colour_tuple:
-            list_colour = list(colour_tuple)
+
             if component <= 127:
                 list_colour[i] = min_pixel
             

@@ -3,15 +3,16 @@ import Cimpl
 
 def red_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
+    Author: Himanshu Singh
 
     RETURNS an ImageObject whose
     channels except for red, have
     been zeroed, after being
-    PASSED a Cimpl.Image object
+    PASSED img
 
-    >>> Cimpl.show(red_channel('p2-original.png'))
-    -> An a red filtered image will be displayed
+    img is a Cimpl.Image object
+
+    >>> red_channel(Cimpl.load_image(Cimpl.choose_file()))
     """
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
@@ -21,15 +22,16 @@ def red_channel(img: Cimpl.Image) -> Cimpl.Image:
 
 def green_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
+    Author: Ibrahim Kasim
 
     RETURNS an ImageObject whose
     channels except for green, have
     been zeroed, after being
-    PASSED a Cimpl.Image object
+    PASSED img
 
-    >>> Cimpl.show(green_channel(Cimpl.load_image(('p2-original.png')))
-    -> An a green filtered image will be displayed
+    img is a Cimpl.Image object
+
+    >>> green_channel(Cimpl.load_image(Cimpl.choose_file()))
     """
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
@@ -39,15 +41,16 @@ def green_channel(img: Cimpl.Image) -> Cimpl.Image:
 
 def blue_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
+    Author: Yanglong Liu
 
     RETURNS an ImageObject whose
     channels except for green, have
     been zeroed, after being
-    PASSED a Cimpl.Image object
+    PASSED img
 
-    >>> Cimpl.show(blue_channel(Cimpl.load_image(('p2-original.png')))
-    -> An a green filtered image will be displayed
+    img is a Cimpl.Image object
+
+    >>> blue_channel(Cimpl.load_image(Cimpl.choose_file()))
     """
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
@@ -65,7 +68,7 @@ def combine(img_1: Cimpl.Image, img_2: Cimpl.Image, img_3: Cimpl.Image) -> Cimpl
 
     img_1, img_2, and img_3 are Cimpl.Image objects PASSED to the function.
 
-    >>> combine(Cimpl.create_image(1,1), Cimpl.create_image(1,1), Cimpl.create_image(1,1))
+    >>> combine(Cimpl.load_image(Cimpl.choose_file()), Cimpl.load_image(Cimpl.choose_file()), Cimpl.load_image(Cimpl.choose_file()))
     """
     base = Cimpl.copy(img_1)
 
@@ -80,16 +83,18 @@ def combine(img_1: Cimpl.Image, img_2: Cimpl.Image, img_3: Cimpl.Image) -> Cimpl
 
 def detect_edges(img: Cimpl.Image, thres: int) -> Cimpl.Image:
     """
+    Author: Ibrahim Kasim
+
     RETURNS a Cimpl.Image object
     whose pixels have been changed
     to black or white dependent on its
     contrast with the pixel below it after
-    being passed img and thres
+    being PASSED img and thres
 
     img is a Cimpl.Image object
     thres is a integer
 
-    >>> detect_edges(Cimpl.load_image(choose_file()), 4)
+    >>> detect_edges(Cimpl.load_image(choose_file()), 10)
     """
     black = Cimpl.Color(0, 0, 0)
     white = Cimpl.Color(255, 255, 255)
@@ -112,12 +117,14 @@ def detect_edges(img: Cimpl.Image, thres: int) -> Cimpl.Image:
 
 def detect_edges_better(img: Cimpl.Image, thres: int) -> Cimpl.Image:
     """
+    Author: Yanglong Liu
+
     RETURNS a Cimpl.Image object
     whose pixels have been changed
     to black or white dependent on its
     contrast with the pixel below or to the
     right of it, after
-    being passed img and thres
+    being PASSED img and thres
 
     img is a Cimpl.Image object
     thres is a integer
@@ -153,9 +160,12 @@ def detect_edges_better(img: Cimpl.Image, thres: int) -> Cimpl.Image:
 def extreme_contrast(original_image: Cimpl.Image) -> Cimpl.Image:
     """
     Author: Ibrahim Kasim
-    RETURNS a Cimpl.Imagee object where
+
+    RETURNS a Cimpl.Image object where
     the pixel channels in original_image have
     been set to 0 or 255.
+
+    original_image is a Cimpl.Image object
 
     >>> extreme_contrast(Cimpl.load_image(choose_file()))
     """
@@ -168,7 +178,7 @@ def extreme_contrast(original_image: Cimpl.Image) -> Cimpl.Image:
         for component in colour_tuple:
             if component <= 127:
                 list_colour += [min_pixel]
-            elif component >= 128:
+            else:
                 list_colour += [max_pixel]
 
         maximized_contrast = Cimpl.create_color(list_colour[0], list_colour[1], list_colour[2])
@@ -178,10 +188,14 @@ def extreme_contrast(original_image: Cimpl.Image) -> Cimpl.Image:
 
 def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
     """
+    Author: Zakaria Ismail
+
     RETURNS a Cimpl.Image object
     where img is flipped horizontally
 
-    >>> flip_horizontal(Cimpl.create_image(1,1))
+    img is a Cimpl.Image object
+
+    >>> flip_horizontal(Cimpl.load_image(Cimpl.choose_file()))
     """
     hgt = Cimpl.get_height(img)
     wth = Cimpl.get_width(img)
@@ -243,7 +257,11 @@ def grayscale(img: Cimpl.Image) -> Cimpl.Image:
     """
     RETURNS a grayscaled
     Cimpl.Image object after
-    being PASSEDD a Cimpl.Image object.
+    being PASSED img
+
+    img is a Cimpl.Image object
+
+    >>> grayscale(Cimpl.load_image(Cimpl.choose_file()))
     """
     img = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
@@ -254,9 +272,15 @@ def grayscale(img: Cimpl.Image) -> Cimpl.Image:
 
 def sepia(img: Cimpl.Image) -> Cimpl.Image:
     """
+    Author: Yanglong Liu
+
     RETURNS a sepia filtered
     Cimpl.Image object after
-    being PASSED a Cimpl.Image object
+    being PASSED img
+
+    img is a Cimpl.Image object
+
+    >>> sepia(Cimpl.load_image(Cimpl.choose_file()))
     """
     img = Cimpl.copy(img)
     img = grayscale(img)
@@ -277,12 +301,19 @@ def sepia(img: Cimpl.Image) -> Cimpl.Image:
 
 def three_tone(img: Cimpl.Image, tone_a: str, tone_b: str, tone_c: str) -> Cimpl.Image:
     """
-        RETURNS a Cimpl.Image object
-        that was turned into a two toned image.
-        Is PASSED a Cimpl.Image object,
-        and two strings
-        """
-    COLOURS = {
+    Author: Himanshu Singh
+
+    RETURNS a Cimpl.Image object
+    that was turned into a two toned image after
+    being PASSED img, tone_a, tone_b, and tone_c
+
+    img is a Cimpl.Image object
+
+    tone_a, tone_b, and tone_c are strings representing colours
+
+    >>> three_tone(Cimpl.load_image(Cimpl.choose_file()), 'black', 'white', 'gray')
+    """
+    colours = {
         'black': Cimpl.Color(0, 0, 0),
         'white': Cimpl.Color(255, 255, 255),
         'red': Cimpl.Color(255, 0, 0),
@@ -298,22 +329,29 @@ def three_tone(img: Cimpl.Image, tone_a: str, tone_b: str, tone_c: str) -> Cimpl
     for x, y, (r, g, b) in img:
         brightness = (r + g + b) / 3
         if brightness <= 84:
-            Cimpl.set_color(img, x, y, COLOURS[tone_a])
+            Cimpl.set_color(img, x, y, colours[tone_a])
         elif 84 < brightness <= 170:
-            Cimpl.set_color(img, x, y, COLOURS[tone_b])
+            Cimpl.set_color(img, x, y, colours[tone_b])
         else:
-            Cimpl.set_color(img, x, y, COLOURS[tone_c])
+            Cimpl.set_color(img, x, y, colours[tone_c])
     return img
 
 
 def two_tone(img: Cimpl.Image, tone_a: str, tone_b: str) -> Cimpl.Image:
     """
+    Author: Himanshu Singh
+
     RETURNS a Cimpl.Image object
-    that was turned into a two toned image.
-    Is PASSED a Cimpl.Image object,
-    and two strings
+    that was turned into a two toned image
+    after being PASSED img, tone_a, and tone_b
+
+    img is a Cimpl.Image object
+
+    tone_a and tone_b are strings representing colours
+
+    >>> two_tone(Cimpl.load_image(Cimpl.choose_file()), 'white', 'gray')
     """
-    COLOURS = {
+    colours = {
         'black': Cimpl.Color(0, 0, 0),
         'white': Cimpl.Color(255, 255, 255),
         'red': Cimpl.Color(255, 0, 0),
@@ -329,17 +367,23 @@ def two_tone(img: Cimpl.Image, tone_a: str, tone_b: str) -> Cimpl.Image:
     for x, y, (r, g, b) in img:
         brightness = (r + g + b) / 3
         if brightness <= 127:
-            Cimpl.set_color(img, x, y, COLOURS[tone_a])
+            Cimpl.set_color(img, x, y, colours[tone_a])
         else:
-            Cimpl.set_color(img, x, y, COLOURS[tone_b])
+            Cimpl.set_color(img, x, y, colours[tone_b])
     return img
 
 
 def flip_vertical(img: Cimpl.Image) -> Cimpl.Image:
     """
+    Author: Himanshu Singh
+
     RETURNS a Cimpl.Image
     that was flipped, after
-    being PASSED a Cimpl.Image object
+    being PASSED a img
+
+    img is a Cimpl.Image object
+
+    >>> flip_vertical(Cimpl.load_image(Cimpl.choose_file()))
     """
     hgt = Cimpl.get_height(img)
     mid_y = hgt // 2
@@ -347,8 +391,6 @@ def flip_vertical(img: Cimpl.Image) -> Cimpl.Image:
     copy = Cimpl.copy(img)
     for y in range(mid_y):
         for x in range(wth):
-            #r1, g1, b1 = Cimpl.get_color(img, x, y)
-            #r2, g2, b2 = Cimpl.get_color(img, x, hgt-y)
             Cimpl.set_color(copy, x, y, Cimpl.get_color(img, x, hgt-y-1))
             Cimpl.set_color(copy, x, hgt-y-1, Cimpl.get_color(img, x, y))
     return copy

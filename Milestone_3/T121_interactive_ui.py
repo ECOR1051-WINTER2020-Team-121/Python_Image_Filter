@@ -64,6 +64,7 @@ def menu_prompt(is_image_loaded: bool) -> str:
     is_image_loaded is a Boolean telling whether an image is loaded or not
 
     >>> menu_prompt(True)
+    'X'
     """
     user_options = ['L', 'S', '2', '3', 'X', 'T', 'P', 'E', 'I', 'V', 'H', 'Q']
     is_valid_option = False

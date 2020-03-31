@@ -35,7 +35,7 @@ def green_channel(img: Cimpl.Image) -> Cimpl.Image:
     """
     copy = Cimpl.copy(img)
     for x, y, (r, g, b) in img:
-        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, 0, b))
+        Cimpl.set_color(copy, x, y, Cimpl.create_color(0, g, 0))
     return copy
 
 
@@ -87,11 +87,12 @@ def detect_edges(img: Cimpl.Image, thres: int) -> Cimpl.Image:
 
     RETURNS a Cimpl.Image object
     whose pixels have been changed
-    to black or white dependent on its
+    to black or white depending on its
     contrast with the pixel below it after
     being PASSED img and thres
 
     img is a Cimpl.Image object
+
     thres is a integer
 
     >>> detect_edges(Cimpl.load_image(choose_file()), 10)
@@ -121,12 +122,13 @@ def detect_edges_better(img: Cimpl.Image, thres: int) -> Cimpl.Image:
 
     RETURNS a Cimpl.Image object
     whose pixels have been changed
-    to black or white dependent on its
+    to black or white depending on its
     contrast with the pixel below or to the
     right of it, after
     being PASSED img and thres
 
     img is a Cimpl.Image object
+
     thres is a integer
 
     >>> detect_edges_better(Cimpl.load_image(choose_file()), 4)
@@ -227,12 +229,12 @@ def posterize(img: Cimpl.Image) -> Cimpl.Image:
     for x, y, col in img:
         channels = []
         for ch in col:
-            channels += [__adjust_component__(ch)]
+            channels += [_adjust_component(ch)]
         Cimpl.set_color(img, x, y, Cimpl.create_color(channels[0], channels[1], channels[1]))
     return img
 
 
-def __adjust_component__(num: int) -> int:
+def _adjust_component(num: int) -> int:
     """
     Author: Zakaria Ismail
 
@@ -394,3 +396,4 @@ def flip_vertical(img: Cimpl.Image) -> Cimpl.Image:
             Cimpl.set_color(copy, x, y, Cimpl.get_color(img, x, hgt-y-1))
             Cimpl.set_color(copy, x, hgt-y-1, Cimpl.get_color(img, x, y))
     return copy
+

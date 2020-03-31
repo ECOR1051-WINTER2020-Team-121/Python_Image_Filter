@@ -35,14 +35,14 @@ Usage
 
 To use the text-based UI:
 
-    - Open Terminal and type the following into the command line:
+    - Open Terminal and type the following into the command line to run the program:
         python3 T121_interactive_ui.py
 
     - A menu will prompt you to select an option. Input 'L' into the
     command line and then select a file to load an image into the program
 
     - Inputting the displayed letters into the command line will allow you
-    to apply the corresponding filter into the image.
+    to apply the corresponding filter into the image.Ac
 
     Certain filters, such as Edge Detect and Improved Edge Detect will prompt
     you to enter an integer before applying the filter.

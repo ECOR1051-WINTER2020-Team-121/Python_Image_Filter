@@ -87,7 +87,7 @@ def apply_filters(data: dict) -> Cimpl.Image:
         elif data['commands'][i] == '3':
             image = filter_functions['3'](image, 'yellow', 'magenta', 'cyan')
         elif data['commands'][i] == 'E' or data['commands'][i] == 'I':
-            threshold = data['commands'][i+1]
+            threshold = int(data['commands'][i+1])
             image = filter_functions[data['commands'][i]](image, threshold)
             i += 1
         else:

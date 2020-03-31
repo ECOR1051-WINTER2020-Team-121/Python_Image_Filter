@@ -1,6 +1,6 @@
 """
 Team Identifier: 121
-Contributing Members: Zakaria Ismail, Ibrahim Kasim, Himanshu Singh, Yanglong Liu
+Contributing Members: Zakaria Ismail, Yanglong Liu
 """
 
 import Cimpl
@@ -9,20 +9,15 @@ from T121_image_filters import *
 
 def main() -> None:
     """
-    Author: Zakaria Ismail
+    Authors: Zakaria Ismail, Yanglong Liu
 
-    RETURNS nothing. Is PASSED nothing.
+    RETURNS nothing.
 
     Main function containing all of
     the main components.
 
     >>> main()
     """
-    # Things to do:
-    #   - Read file line by line
-    #   - Identify filenames and commands
-    #       - Identify threshold value associated with E and I
-    #   - Sort
 
     batch_filename = 'batch_sample.txt'
 
@@ -30,13 +25,13 @@ def main() -> None:
 
     for line in file:
         data = parse_linedata(line)
-        image = apply_filters(data)
+        image = apply_filters(data['filename'], data['commands'])
         save_image(image, data['save_file_as'])
 
 
 def parse_linedata(linedata: str) -> dict:
     """
-    Author: Zakaria Ismail
+    Authors: Zakaria Ismail, Yanglong Liu
 
     RETURNS a dict that contains
     organized information from line
@@ -55,16 +50,18 @@ def parse_linedata(linedata: str) -> dict:
     return data
 
 
-def apply_filters(data: dict) -> Cimpl.Image:
+def apply_filters(filename: str, commands: list) -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
+    Authors: Zakaria Ismail, Yanglong Liu
 
     RETURNS a Cimpl.Image object and applies filters
-    to an image after being PASSED data.
+    to an image after being PASSED filename and commands
 
-    data is a dict that contains information for filter sequences and saving the file
+    filename is a string directing to the location of the image file
 
-    >>> apply_filters(data)
+    commands is a list containing the image filter sequences
+
+    >>> apply_filters('filename.png', ['2', 'X', 'V', 'P'])
     """
     filter_functions = {
         '2': two_tone,
@@ -78,36 +75,35 @@ def apply_filters(data: dict) -> Cimpl.Image:
         'H': flip_horizontal,
     }
 
-    image = Cimpl.load_image(data["filename"])
+    image = Cimpl.load_image(filename)
 
     i = 0
-    while i < len(data['commands']):
-        if data['commands'][i] == '2':
+    while i < len(commands):
+        if commands[i] == '2':
             image = filter_functions['2'](image, 'yellow', 'cyan')
-        elif data['commands'][i] == '3':
+        elif commands[i] == '3':
             image = filter_functions['3'](image, 'yellow', 'magenta', 'cyan')
-        elif data['commands'][i] == 'E' or data['commands'][i] == 'I':
-            threshold = int(data['commands'][i+1])
-            image = filter_functions[data['commands'][i]](image, threshold)
-            i += 1
+        elif commands[i] == 'E' or commands[i] == 'I':
+            image = filter_functions[commands[i]](image, 10)
         else:
-            image = filter_functions[data['commands'][i]](image)
+            image = filter_functions[commands[i]](image)
         i += 1
     return image
 
 
 def save_image(image: Cimpl.Image, filename: str) -> None:
     """
-    Author: Zakaria Ismail
+    Authors: Zakaria Ismail, Yanglong Liu
 
     RETURNS None and saves image
     to the directory using information
     from filename
 
     image is a Cimpl.Image object that is going to be saved
+
     filename is a str that defines the image's filename when saved
 
-    >>> save_image(Cimpl.create_image(1,1), 'filename.png')
+    >>> save_image(Cimpl.load_image(Cimpl.choose_file()), 'filename.png')
     """
     Cimpl.save_as(image, filename)
 

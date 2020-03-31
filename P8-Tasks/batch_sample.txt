@@ -1,4 +1,4 @@
-miss_sullivan.png batch_result.png I 10
-miss_sullivan.png batch_result2.png I 20
-miss_sullivan.png batch_result3.png E 10
-miss_sullivan.png batch_result4.png E 20
+miss_sullivan.png batch_result.png X H
+miss_sullivan.png batch_result2.png H E I
+miss_sullivan.png batch_result3.png X V 2 P
+miss_sullivan.png batch_result4.png 3 T V

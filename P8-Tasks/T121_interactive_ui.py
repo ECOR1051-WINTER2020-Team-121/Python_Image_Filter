@@ -1,17 +1,17 @@
 """
 Team Identifier: 121
-Contributing Members: Zakaria Ismail, Ibrahim Kasim, Himanshu Singh, Yanglong Liu
+Contributing Members: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 """
 
-import Cimpl  # ARE WE ALLOWED TO IMPORT THIS?
+import Cimpl
 from T121_image_filters import *
 
 
 def main() -> None:
     """
-    Author: Zakaria Ismail
+    Authors: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 
-    RETURNS nothing and is PASSED nothing.
+    RETURNS None.
 
     Main function where all of the
     components of the user interface
@@ -37,6 +37,7 @@ def main() -> None:
         # Could this be improved by implementing dict function calls? (or keep it for filters only?)
         if option == 'L':
             loaded_image = load_image()
+            # Cimpl.show(loaded_image)
             is_image_loaded = True
         elif option == 'S':
             save_image(loaded_image)
@@ -44,15 +45,16 @@ def main() -> None:
             exit_function = True
         else:
             loaded_image = apply_filter(loaded_image, option)
-            Cimpl.show(loaded_image)
+            # Cimpl.show(loaded_image)
 
 
 def menu_prompt(is_image_loaded: bool) -> str:
     """
-    Author: Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 
     RETURNS a string representing the
-    selected user-input. Is PASSED is_image_loaded
+    selected user-input and performs outputs
+    based on is_image_loaded.
 
     Prompts the user to provide an input.
     Errors such as non-existing inputted commands
@@ -90,27 +92,29 @@ def menu_prompt(is_image_loaded: bool) -> str:
 
 def load_image() -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 
     RETURNS a Cimpl.Image object.
-    Is PASSED nothing.
 
     Prompts the user to select
-    a file (using choose_file())
+    an image file to load, and
+    displays the loaded image
 
     >>> load_image()
     """
     # Cimpl.choose_file()
     filename = input("Input filename: ")
-    return Cimpl.load_image(filename)
+    image = Cimpl.load_image(filename)
+    Cimpl.show(image)
+    return image
 
 
 def save_image(image: Cimpl.Image) -> None:
     """
-    Author: Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 
-    RETURNS None. Is PASSED image
-    Prompts the user to select a filename to save as
+    RETURNS None and prompts the user to
+    select a filename to save image as
 
     image is a Cimpl.Image object
 
@@ -124,14 +128,14 @@ def save_image(image: Cimpl.Image) -> None:
 
 def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
     """
-    Author: Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 
-    RETURNS a Cimpl.Image object
-    and is PASSED image and command.
-    Applies a filter to image based on command.
+    RETURNS a Cimpl.Image object and
+    applies a filter to image based on command,
+    and displays the result.
 
-    image is a Cimpl.Image
-    command is a str
+    image is a Cimpl.Image object
+    command is a str representing the filter to be applied
 
     >>> apply_filter(Cimpl.create_image(1,1), 'X')
     """
@@ -158,14 +162,15 @@ def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
     else:
         image = filter_functions[command](image)
 
+    Cimpl.show(image)
     return image
 
 
 def prompt_threshold() -> int:
     """
-    Author: Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 
-    RETURNS an int. Is PASSED nothing.
+    RETURNS an integer.
 
     >>> prompt_threshold()
     """
@@ -181,4 +186,4 @@ def prompt_threshold() -> int:
 
 
 main()
-print("Program has ended.")
+print("Program has ended. Goodbye.")

@@ -1,4 +1,5 @@
 """
+Milestone 3
 Team Identifier: 121
 Contributing Members: Zakaria Ismail, Yanglong Liu
 """
@@ -27,6 +28,8 @@ def main() -> None:
         data = parse_linedata(line)
         image = apply_filters(data['filename'], data['commands'])
         save_image(image, data['save_file_as'])
+
+    file.close()
 
 
 def parse_linedata(linedata: str) -> dict:

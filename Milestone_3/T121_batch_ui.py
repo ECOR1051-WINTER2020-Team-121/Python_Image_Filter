@@ -82,14 +82,7 @@ def apply_filters(filename: str, commands: list) -> Cimpl.Image:
 
     i = 0
     while i < len(commands):
-        if commands[i] == '2':
-            image = two_tone(image, 'yellow', 'cyan')
-        elif commands[i] == '3':
-            image = three_tone(image, 'yellow', 'magenta', 'cyan')
-        elif commands[i] == 'E' or commands[i] == 'I':
-            image = filter_functions[commands[i]](image, 10)
-        else:
-            image = filter_functions[commands[i]](image)
+        image = filter_functions[commands[i]](image)
         i += 1
     return image
 

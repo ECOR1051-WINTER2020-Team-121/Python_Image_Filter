@@ -136,12 +136,7 @@ def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
         'H': flip_horizontal,
     }
 
-    # Could be refactored
-    if command == '2':
-        image = two_tone(image, 'yellow', 'cyan')
-    elif command == '3':
-        image = three_tone(image, 'yellow', 'magenta', 'cyan')
-    elif command == 'E' or command == 'I':
+    if command == 'E' or command == 'I':
         image = filter_functions[command](image, prompt_threshold())
     else:
         image = filter_functions[command](image)

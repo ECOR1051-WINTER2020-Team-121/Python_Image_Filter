@@ -81,7 +81,7 @@ def combine(img_1: Cimpl.Image, img_2: Cimpl.Image, img_3: Cimpl.Image) -> Cimpl
     return base
 
 
-def detect_edges(img: Cimpl.Image, thres: int) -> Cimpl.Image:
+def detect_edges(img: Cimpl.Image, thres: int = 10) -> Cimpl.Image:
     """
     Author: Ibrahim Kasim
 
@@ -116,7 +116,7 @@ def detect_edges(img: Cimpl.Image, thres: int) -> Cimpl.Image:
     return copy
 
 
-def detect_edges_better(img: Cimpl.Image, thres: int) -> Cimpl.Image:
+def detect_edges_better(img: Cimpl.Image, thres: int = 10) -> Cimpl.Image:
     """
     Author: Yanglong Liu
 
@@ -302,7 +302,7 @@ def sepia(img: Cimpl.Image) -> Cimpl.Image:
     return img
 
 
-def three_tone(img: Cimpl.Image, tone_a: str, tone_b: str, tone_c: str) -> Cimpl.Image:
+def three_tone(img: Cimpl.Image, tone_a: str = 'yellow', tone_b: str = 'magenta', tone_c: str = 'cyan') -> Cimpl.Image:
     """
     Author: Himanshu Singh
 
@@ -344,7 +344,7 @@ def three_tone(img: Cimpl.Image, tone_a: str, tone_b: str, tone_c: str) -> Cimpl
     return img
 
 
-def two_tone(img: Cimpl.Image, tone_a: str, tone_b: str) -> Cimpl.Image:
+def two_tone(img: Cimpl.Image, tone_a: str = 'yellow', tone_b: str = 'cyan') -> Cimpl.Image:
     """
     Author: Himanshu Singh
 

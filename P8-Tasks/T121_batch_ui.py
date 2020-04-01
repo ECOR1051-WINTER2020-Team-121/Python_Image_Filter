@@ -1,5 +1,4 @@
 """
-Milestone 3
 Team Identifier: 121
 Contributing Members: Zakaria Ismail, Yanglong Liu
 """
@@ -18,9 +17,9 @@ def main() -> None:
     the main components.
 
     >>> main()
+    None
     """
-
-    batch_filename = 'batch_sample.txt'
+    batch_filename = prompt_filename()
 
     file = open(batch_filename, 'r')
 
@@ -30,6 +29,21 @@ def main() -> None:
         save_image(image, data['save_file_as'])
 
     file.close()
+
+
+def prompt_filename() -> str:
+    """
+    Authors: Zakaria Ismail, Yanglong Liu
+
+    RETURNS a string and prompts the user
+    to select a text file.
+
+    >>> prompt_filename()
+    'batch_sample.txt'
+    """
+    print("Select a .txt file")
+    return input("Input a text file name: ")
+    # return Cimpl.choose_file()
 
 
 def parse_linedata(linedata: str) -> dict:
@@ -82,14 +96,8 @@ def apply_filters(filename: str, commands: list) -> Cimpl.Image:
 
     i = 0
     while i < len(commands):
-        if commands[i] == '2':
-            image = filter_functions['2'](image, 'yellow', 'cyan')
-        elif commands[i] == '3':
-            image = filter_functions['3'](image, 'yellow', 'magenta', 'cyan')
-        elif commands[i] == 'E' or commands[i] == 'I':
-            image = filter_functions[commands[i]](image, 10)
-        else:
-            image = filter_functions[commands[i]](image)
+        # Note: Functions that have parameters have default arguments set in T121_image_filters.py
+        image = filter_functions[commands[i]](image)
         i += 1
     return image
 
@@ -107,6 +115,7 @@ def save_image(image: Cimpl.Image, filename: str) -> None:
     filename is a str that defines the image's filename when saved
 
     >>> save_image(Cimpl.load_image(Cimpl.choose_file()), 'filename.png')
+    None
     """
     Cimpl.save_as(image, filename)
 

@@ -87,9 +87,8 @@ def load_image() -> Cimpl.Image:
 
     >>> load_image()
     """
-    filename = input("Input filename: ")
-    image = Cimpl.load_image(filename)
-    # image = Cimpl.load_image(Cimpl.choose_file())
+    print("Select an image file to load")
+    image = Cimpl.load_image(Cimpl.choose_file())
     Cimpl.show(image)
     return image
 
@@ -106,9 +105,8 @@ def save_image(image: Cimpl.Image) -> None:
     >>> save_image(Cimpl.load_image(Cimpl.choose_file()))
     """
 
-    filename = input("Input filename to save as: ")
-    Cimpl.save_as(image, filename)
-    # Cimpl.save_as(image)
+    print("Select your image's save directory")
+    Cimpl.save_as(image)
 
 
 def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:

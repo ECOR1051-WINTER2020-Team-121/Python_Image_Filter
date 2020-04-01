@@ -42,7 +42,6 @@ def prompt_filename() -> str:
     'batch_sample.txt'
     """
     print("Select a .txt file")
-    return input("Input a text file name: ")
     # return Cimpl.choose_file()
 
 

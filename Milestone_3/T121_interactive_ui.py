@@ -18,26 +18,17 @@ def main() -> None:
     are located.
 
     >>> main()
+    None
     """
-    # Things the function needs
-    #   1. A menu prompt asking for an input
-    #       - Must not be case-sensitive
-    #   2. Error catching for when:
-    #       - Image is not loaded
-    #       - Improper input
-    #   3. Prompt for threshold value for when the user selects one of the edge detect filters
-    #   4. Display the image after selecting a valid filter
-    #   5. (Save_as should prompt for filename)
+
     exit_function = False
     is_image_loaded = False
     loaded_image = None
     while not exit_function:
         option = menu_prompt(is_image_loaded)
 
-        # Could this be improved by implementing dict function calls? (or keep it for filters only?)
         if option == 'L':
             loaded_image = load_image()
-            # Cimpl.show(loaded_image)
             is_image_loaded = True
         elif option == 'S':
             save_image(loaded_image)
@@ -45,7 +36,6 @@ def main() -> None:
             exit_function = True
         else:
             loaded_image = apply_filter(loaded_image, option)
-            # Cimpl.show(loaded_image)
 
 
 def menu_prompt(is_image_loaded: bool) -> str:
@@ -75,13 +65,7 @@ def menu_prompt(is_image_loaded: bool) -> str:
               "Q)uit\n")
         option = input(": ").upper()
 
-        # Needs refactoring
-        if is_image_loaded:
-            if option in user_options:
-                is_valid_option = True
-            else:
-                print("No such command")
-        elif option in ['L', 'Q']:
+        if option in ['L', 'Q'] or is_image_loaded and option in user_options:
             is_valid_option = True
         elif option in user_options:
             print("Image not loaded")
@@ -103,9 +87,9 @@ def load_image() -> Cimpl.Image:
 
     >>> load_image()
     """
-    # Cimpl.choose_file()
     filename = input("Input filename: ")
     image = Cimpl.load_image(filename)
+    # image = Cimpl.load_image(Cimpl.choose_file())
     Cimpl.show(image)
     return image
 
@@ -119,12 +103,12 @@ def save_image(image: Cimpl.Image) -> None:
 
     image is a Cimpl.Image object
 
-    >>> save_image(Cimpl.create_image(1,1))
+    >>> save_image(Cimpl.load_image(Cimpl.choose_file()))
     """
-    # Observation: Why do the pictures save once the program has ended?
+
     filename = input("Input filename to save as: ")
     Cimpl.save_as(image, filename)
-    # Cimpl.save_as(image)    # Filename and directory prompt is broken, ASK ABOUT THIS
+    # Cimpl.save_as(image)
 
 
 def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
@@ -138,7 +122,7 @@ def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
     image is a Cimpl.Image object
     command is a str representing the filter to be applied
 
-    >>> apply_filter(Cimpl.create_image(1,1), 'X')
+    >>> apply_filter(Cimpl.load_image(Cimpl.choose_file()), 'X')
     """
     filter_functions = {
         '2': two_tone,
@@ -154,12 +138,11 @@ def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
 
     # Could be refactored
     if command == '2':
-        image = filter_functions[command](image, 'yellow', 'cyan')
+        image = two_tone(image, 'yellow', 'cyan')
     elif command == '3':
-        image = filter_functions[command](image, 'yellow', 'magenta', 'cyan')
+        image = three_tone(image, 'yellow', 'magenta', 'cyan')
     elif command == 'E' or command == 'I':
-        threshold = prompt_threshold()
-        image = filter_functions[command](image, threshold)
+        image = filter_functions[command](image, prompt_threshold())
     else:
         image = filter_functions[command](image)
 
@@ -171,7 +154,12 @@ def prompt_threshold() -> int:
     """
     Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 
-    RETURNS an integer.
+    RETURNS an integer after
+    prompting the user to input
+    a number.
+
+    Error catching for non-number
+    inputs is present.
 
     >>> prompt_threshold()
     """

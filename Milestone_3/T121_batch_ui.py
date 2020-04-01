@@ -17,6 +17,7 @@ def main() -> None:
     the main components.
 
     >>> main()
+    None
     """
 
     batch_filename = 'batch_sample.txt'
@@ -27,6 +28,8 @@ def main() -> None:
         data = parse_linedata(line)
         image = apply_filters(data['filename'], data['commands'])
         save_image(image, data['save_file_as'])
+
+    file.close()
 
 
 def parse_linedata(linedata: str) -> dict:
@@ -80,9 +83,9 @@ def apply_filters(filename: str, commands: list) -> Cimpl.Image:
     i = 0
     while i < len(commands):
         if commands[i] == '2':
-            image = filter_functions['2'](image, 'yellow', 'cyan')
+            image = two_tone(image, 'yellow', 'cyan')
         elif commands[i] == '3':
-            image = filter_functions['3'](image, 'yellow', 'magenta', 'cyan')
+            image = three_tone(image, 'yellow', 'magenta', 'cyan')
         elif commands[i] == 'E' or commands[i] == 'I':
             image = filter_functions[commands[i]](image, 10)
         else:
@@ -104,6 +107,7 @@ def save_image(image: Cimpl.Image, filename: str) -> None:
     filename is a str that defines the image's filename when saved
 
     >>> save_image(Cimpl.load_image(Cimpl.choose_file()), 'filename.png')
+    None
     """
     Cimpl.save_as(image, filename)
 

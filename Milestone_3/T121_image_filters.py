@@ -203,6 +203,7 @@ def flip_horizontal(img: Cimpl.Image) -> Cimpl.Image:
     wth = Cimpl.get_width(img)
     mid_x = wth // 2
     copy = Cimpl.copy(img)
+
     for y in range(hgt):
         for x in range(mid_x):
             Cimpl.set_color(copy, x, y, Cimpl.get_color(img, wth-x-1, y))
@@ -287,16 +288,16 @@ def sepia(img: Cimpl.Image) -> Cimpl.Image:
     img = Cimpl.copy(img)
     img = grayscale(img)
 
+    b_multipliers = [0.9, 0.85, 0.93]
+    r_multipliers = [1.1, 1.15, 1.08]
+    limits = [63, 192, 256]
+
     for x, y, (r, g, b) in img:
-        if r < 63:
-            b *= 0.9
-            r *= 1.1
-        elif 63 <= r <= 191:
-            b *= 0.85
-            r *= 1.15
-        else:
-            b *= 0.93
-            r *= 1.08
+        for i in range(3):
+            if r < limits[i]:
+                r *= r_multipliers[i]
+                b *= b_multipliers[i]
+
         Cimpl.set_color(img, x, y, Cimpl.create_color(r, g, b))
     return img
 
@@ -328,14 +329,18 @@ def three_tone(img: Cimpl.Image, tone_a: str, tone_b: str, tone_c: str) -> Cimpl
     }
 
     img = Cimpl.copy(img)
+    lower_limit = 84
+    upper_limit = 170
+
     for x, y, (r, g, b) in img:
         brightness = (r + g + b) / 3
-        if brightness <= 84:
-            Cimpl.set_color(img, x, y, colours[tone_a])
-        elif 84 < brightness <= 170:
-            Cimpl.set_color(img, x, y, colours[tone_b])
+        if brightness <= lower_limit:
+            col = colours[tone_a]
+        elif brightness <= upper_limit:
+            col = colours[tone_b]
         else:
-            Cimpl.set_color(img, x, y, colours[tone_c])
+            col = colours[tone_c]
+        Cimpl.set_color(img, x, y, col)
     return img
 
 
@@ -366,12 +371,15 @@ def two_tone(img: Cimpl.Image, tone_a: str, tone_b: str) -> Cimpl.Image:
     }
 
     img = Cimpl.copy(img)
+    limit = 127
+
     for x, y, (r, g, b) in img:
         brightness = (r + g + b) / 3
-        if brightness <= 127:
-            Cimpl.set_color(img, x, y, colours[tone_a])
+        if brightness <= limit:
+            col = colours[tone_a]
         else:
-            Cimpl.set_color(img, x, y, colours[tone_b])
+            col = colours[tone_b]
+        Cimpl.set_color(img, x, y, col)
     return img
 
 
@@ -391,6 +399,7 @@ def flip_vertical(img: Cimpl.Image) -> Cimpl.Image:
     mid_y = hgt // 2
     wth = Cimpl.get_width(img)
     copy = Cimpl.copy(img)
+
     for y in range(mid_y):
         for x in range(wth):
             Cimpl.set_color(copy, x, y, Cimpl.get_color(img, x, hgt-y-1))

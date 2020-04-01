@@ -19,8 +19,7 @@ def main() -> None:
     >>> main()
     None
     """
-
-    batch_filename = 'batch_sample.txt'
+    batch_filename = prompt_filename()
 
     file = open(batch_filename, 'r')
 
@@ -30,6 +29,21 @@ def main() -> None:
         save_image(image, data['save_file_as'])
 
     file.close()
+
+
+def prompt_filename() -> str:
+    """
+    Authors: Zakaria Ismail, Yanglong Liu
+
+    RETURNS a string and prompts the user
+    to select a text file.
+
+    >>> prompt_filename()
+    'batch_sample.txt'
+    """
+    print("Select a .txt file")
+    return input("Input a text file name: ")
+    # return Cimpl.choose_file()
 
 
 def parse_linedata(linedata: str) -> dict:

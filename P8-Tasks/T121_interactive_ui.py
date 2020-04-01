@@ -1,5 +1,4 @@
 """
-Milestone 3
 Team Identifier: 121
 Contributing Members: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 """
@@ -21,6 +20,7 @@ def main() -> None:
     >>> main()
     None
     """
+
     exit_function = False
     is_image_loaded = False
     loaded_image = None
@@ -65,12 +65,7 @@ def menu_prompt(is_image_loaded: bool) -> str:
               "Q)uit\n")
         option = input(": ").upper()
 
-        if is_image_loaded:
-            if option in user_options:
-                is_valid_option = True
-            else:
-                print("No such command")
-        elif option in ['L', 'Q']:
+        if option in ['L', 'Q'] or is_image_loaded and option in user_options:
             is_valid_option = True
         elif option in user_options:
             print("Image not loaded")
@@ -92,8 +87,9 @@ def load_image() -> Cimpl.Image:
 
     >>> load_image()
     """
-
-    image = Cimpl.load_image(Cimpl.choose_file())
+    filename = input("Input filename: ")
+    image = Cimpl.load_image(filename)
+    # image = Cimpl.load_image(Cimpl.choose_file())
     Cimpl.show(image)
     return image
 
@@ -108,10 +104,11 @@ def save_image(image: Cimpl.Image) -> None:
     image is a Cimpl.Image object
 
     >>> save_image(Cimpl.load_image(Cimpl.choose_file()))
-    None
     """
 
-    Cimpl.save_as(image)
+    filename = input("Input filename to save as: ")
+    Cimpl.save_as(image, filename)
+    # Cimpl.save_as(image)
 
 
 def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
@@ -125,7 +122,7 @@ def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
     image is a Cimpl.Image object
     command is a str representing the filter to be applied
 
-    >>> apply_filter(Cimpl.create_image(1,1), 'X')
+    >>> apply_filter(Cimpl.load_image(Cimpl.choose_file()), 'X')
     """
     filter_functions = {
         '2': two_tone,
@@ -139,14 +136,8 @@ def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
         'H': flip_horizontal,
     }
 
-    # Could be refactored
-    if command == '2':
-        image = filter_functions[command](image, 'yellow', 'cyan')
-    elif command == '3':
-        image = filter_functions[command](image, 'yellow', 'magenta', 'cyan')
-    elif command == 'E' or command == 'I':
-        threshold = prompt_threshold()
-        image = filter_functions[command](image, threshold)
+    if command == 'E' or command == 'I':
+        image = filter_functions[command](image, prompt_threshold())
     else:
         image = filter_functions[command](image)
 
@@ -158,10 +149,14 @@ def prompt_threshold() -> int:
     """
     Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
 
-    RETURNS an integer.
+    RETURNS an integer after
+    prompting the user to input
+    a number.
+
+    Error catching for non-number
+    inputs is present.
 
     >>> prompt_threshold()
-
     """
     is_number = False
 

@@ -96,6 +96,7 @@ def apply_filters(filename: str, commands: list) -> Cimpl.Image:
 
     i = 0
     while i < len(commands):
+        # Note: Functions that have parameters have default arguments set in T121_image_filters.py
         image = filter_functions[commands[i]](image)
         i += 1
     return image

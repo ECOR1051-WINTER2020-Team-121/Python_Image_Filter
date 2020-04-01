@@ -1,3 +1,11 @@
+"""
+Date of Submission: Thursday, 2 April 2020
+
+Milestone 3
+Team Identifier: 121
+Contributing Members: Zakaria Ismail, Ibrahim Kasim, Himanshu Singh, Yanglong Liu
+"""
+
 import Cimpl
 
 

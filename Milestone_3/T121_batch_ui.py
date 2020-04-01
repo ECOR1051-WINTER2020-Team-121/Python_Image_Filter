@@ -1,4 +1,7 @@
 """
+Date of Submission: Thursday, 2 April 2020
+
+Milestone 3
 Team Identifier: 121
 Contributing Members: Zakaria Ismail, Yanglong Liu
 """
@@ -41,8 +44,7 @@ def prompt_filename() -> str:
     >>> prompt_filename()
     'batch_sample.txt'
     """
-    print("Select a .txt file")
-    # return Cimpl.choose_file()
+    return input("Please input a .txt filename: ")
 
 
 def parse_linedata(linedata: str) -> dict:

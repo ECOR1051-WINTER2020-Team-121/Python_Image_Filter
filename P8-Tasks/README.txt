@@ -1,6 +1,13 @@
 Python Image Filtering Project Version 1.0 02/04/2020
 
 ---
+Contact Information
+
+    Phone:  613-316-7187
+    E-mail: zakariaismail@cmail.carleton.ca
+
+
+---
 Table of Contents
 
     - Description
@@ -8,78 +15,179 @@ Table of Contents
     - Usage
     - Credits
     - License
-    - Contact Information
+
 
 ---
 Description
 
-This project includes a text-based UI and a batch file-based UI
-programs that filter images based on a series of commands using
-the Python programming language and the Cimpl library, written
-by Donald Bailey at Carleton University, which utilize
-PIL for the image processing and Tkinter for displaying images.
+    This project includes text-based UI and batch file-based UI
+    programs that consecutively filter images based on a series of
+    commands using the Python programming language and the Cimpl
+    library, written by Donald Bailey at Carleton University, which
+    utilize Pillow for the image processing and Tkinter for displaying images.
+
+    This project consists of the following files:
+    - T121_interactive_ui.py
+    - T121_batch_ui.py
+    - T121_image_filters.py
+
 
 ---
-Mac Installation
+Installation
 
-Things to do:
-- Install folder
-    (containing T121_batch_ui.py, T121_image_filters.py, T121_interactive_ui.py, and batch_sample.txt)
-- Install python 3 (MAC/Windows)
-- Install pip? (Does it come with Python?)
-- Install PIL, Tkinter
--
+    To use this application, Python 3.7.4 or later, the Pillow module, and the Cimpl module
+    must be installed.
+
+
+    Installing Python 3
+
+        Skip this step if you already have Python 3 installed.
+
+        On Mac:
+
+            - Install homebrew. To do this, open Terminal and paste into the command line:
+                $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+            - The following will install Python 3. Paste into the command line:
+                $ brew install python3
+
+            Python 3 is now installed on your Mac.
+
+        On Windows:
+
+            - Open a web browser and paste the following link:
+                https://www.python.org/downloads/windows/
+
+            - Click on the link labelled 'Download Windows x86-64 executable installer'. This will prompt
+            a .exe file download.
+
+            - Once the download has finished, run the file and follow the steps provided by the install
+            wizard.
+
+            Python 3 is now installed on your PC.
+
+
+    Installing Pillow
+
+        - Open Terminal and paste the following:
+            $ pip3 install Pillow
+
+        Pillow is now installed on your machine.
+
+
+    Installing Cimpl
+
+        - Open a web browser and go to cuLearn
+            https://culearn.carleton.ca
+
+        - Log in to the site using your credentials
+
+        - Go to the ECOR1051 course page by clicking on its corresponding link
+
+        - Click on the Milestone 1 tab
+
+        - Click on the link labelled 'P1 Task 4 - A folder containing Cimpl.py
+        and Approved Sample Images'. This will direct you to a new page with
+        several files.
+
+        - Click on the link labelled 'Cimpl.py'. This will prompt a download
+        of the Cimpl.py file.
+
+        - Once the download has finished, place the file in folder Python_Image_Filter
+
+
+    Installing the application files
+
+        - Create a folder in your home directory and name it 'Python_Image_Filter'.
+
+        - Place the Python scripts T121_image_filters.py, T121_interactive_ui.py,
+        T121_batch_ui.py, and Cimpl.py in directory 'Python_Image_Filter'.
+
 
 ---
 Usage
 
-To use the text-based UI:
+    To use the text-based UI:
 
-    - Open Terminal and type the following into the command line to run the program:
-        python3 T121_interactive_ui.py
+        - Place any image (.jpg, .png) in the Python_Image_Filter folder
 
-    - A menu will prompt you to select an option. Input 'L' into the
-    command line and then select a file to load an image into the program
+        - Open Terminal and type the following into the command line to run the program:
+            $ cd
+            $ cd Python_Image_Filter
+            $ python3 T121_interactive_ui.py
 
-    - Inputting the displayed letters into the command line will allow you
-    to apply the corresponding filter into the image.Ac
+        - A menu will prompt you to select an option. Input into the command line:
+            : L
 
-    Certain filters, such as Edge Detect and Improved Edge Detect will prompt
-    you to enter an integer before applying the filter.
+        This will load an image into the interface
 
-    - To exit the program, input 'Q' into the command line, when prompted by
-    the menu.
+        - Inputting the displayed letter options into the command line will allow you
+        to apply the corresponding filter into the image. An image with the
+        corresponding filter will be displayed shortly after.
 
-To use the batch file-based UI:
+        Certain filters, such as Edge Detect and Improved Edge Detect will prompt
+        you to enter an integer before applying the filter.
 
-    - Open text file "batch_sample.txt"
+        - Close the displayed image to return to the menu.
 
-    - In a newline, type the filename of the image you wish to filter.
-    Then, after placing a space, type the filename of the image you wish
-    for the result of the series of image filtering to be saved. After that,
-    input a series of command-letters after the two filenames, separated by
-    a space each.
-
-    The list of available command-letters are:
-        X: Extreme Contrast
-        S: Sepia
-        P: Posterize
-        E: Edge Detect
-        I: Improved Edge Detect
-        V: Vertical Flip
-        H: Horizontal Flip
+        - To exit the program, when prompted by the menu, input:
+            : Q
 
 
+    To use the batch file-based UI:
+
+        - Place any image (.jpg, .png) in the Python_Image_Filter folder
+
+        - Create a .txt file titled 'batch_sample.txt' and save it in the
+        Python_Image_Filter directory.
+
+        - To create an image filter command, enter in a newline the filename of an
+        image file (.png, .jpg) inside of the same directory as T121_batch_ui.py,
+        the filename to save the produced result (.png, .jpg), and then a series
+        of letter commands, each separated by a space.
+
+        - Open batch_sample.txt and enter, in a newline, the filename of an image
+        file (.png, .jpg) located in directory Python_Image_Filter, a filename to
+        save the produced result (.png, .jpg), and a series of letter commands, each
+        separated by a space.
+
+        The list of available command-letters are:
+            2: Two-tone (Yellow and Cyan)
+            3: Three-tone (Yellow, Magenta, and Cyan)
+            X: Extreme Contrast
+            S: Sepia
+            P: Posterize
+            E: Edge Detect
+            I: Improved Edge Detect
+            V: Vertical Flip
+            H: Horizontal Flip
+
+        Here is an example batch image filter command:
+            original_image.png batch_result.png X V P
+
+        This batch command produces an image that had been passed through an extreme
+        contrast, a vertical flip, and a posterize filter, consecutively.
+
+        - Open Terminal and type the following to run the batch UI program:
+            $ python3 T121_batch_ui.py
+
+        You will be prompted to enter the filename of the .txt file from which the
+        program will get its commands. Input:
+            : batch_sample.txt
+
+        One or more image files should appear in your directory shortly after.
+
+        - Edit batch_sample.txt by adding new lines of commands or changing existing
+        ones to produce different results.
 
 
-Install the folder containing Cimpl.py, T121_image_filters.py,
-T121_batch_ui.py, T121_interactive_ui.py.
+---
+Credits
 
 
 
+---
+License
 
+    Copyright 2020
 
-Contact Information
-
-Phone:  613-316-7187
-E-mail: zakariaismail@cmail.carleton.ca

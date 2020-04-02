@@ -1,6 +1,6 @@
 """
 Team Identifier: 121
-Contributing Members: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
+Contributing Members: Ibrahim Kasim, Himanshu Singh
 """
 
 import Cimpl
@@ -9,7 +9,7 @@ from T121_image_filters import *
 
 def main() -> None:
     """
-    Authors: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
+    Authors: Ibrahim Kasim, Himanshu Singh
 
     RETURNS None.
 
@@ -40,7 +40,7 @@ def main() -> None:
 
 def menu_prompt(is_image_loaded: bool) -> str:
     """
-    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh
 
     RETURNS a string representing the
     selected user-input and performs outputs
@@ -77,7 +77,7 @@ def menu_prompt(is_image_loaded: bool) -> str:
 
 def load_image() -> Cimpl.Image:
     """
-    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh
 
     RETURNS a Cimpl.Image object.
 
@@ -96,7 +96,7 @@ def load_image() -> Cimpl.Image:
 
 def save_image(image: Cimpl.Image) -> None:
     """
-    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh
 
     RETURNS None and prompts the user to
     select a filename to save image as
@@ -113,7 +113,7 @@ def save_image(image: Cimpl.Image) -> None:
 
 def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
     """
-    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh
 
     RETURNS a Cimpl.Image object and
     applies a filter to image based on command,
@@ -147,7 +147,7 @@ def apply_filter(image: Cimpl.Image, command: str) -> Cimpl.Image:
 
 def prompt_threshold() -> int:
     """
-    Author: Ibrahim Kasim, Himanshu Singh, Zakaria Ismail
+    Author: Ibrahim Kasim, Himanshu Singh
 
     RETURNS an integer after
     prompting the user to input

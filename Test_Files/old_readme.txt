@@ -1,16 +1,15 @@
 Python Image Filtering Project Version 1.0 02/04/2020
 
+---
 Contact Information
--------------------
 
-    This project can be reached at:
+This project can be reached at:
     Phone:  613-316-7187
     E-mail: zakariaismail@cmail.carleton.ca
-    Website: https://carleton.ca/sce/
 
 
+---
 Table of Contents
------------------
 
     - Description
     - Installation
@@ -19,21 +18,22 @@ Table of Contents
     - License
 
 
+---
 Description
------------
 
-    This project includes a text-based UI and a batch file-based UI
-    Python script that consecutively filters images based on a series
-    of commands.
+    This project includes text-based UI and batch file-based UI
+    programs that consecutively filter images based on a series of
+    commands using the Python programming language and the Cimpl
+    library, written by Donald Bailey at Carleton University, which
+    utilizes Pillow for the image processing and Tkinter for displaying images.
 
     This project consists of the following files:
-        - T121_interactive_ui.py
-        - T121_batch_ui.py
-        - T121_image_filters.py
+    - T121_interactive_ui.py
+    - T121_batch_ui.py
+    - T121_image_filters.py
 
-
+---
 Installation
-------------
 
     Python 3.7.4 or later must be installed.
     Built-in and external modules are used.
@@ -67,26 +67,85 @@ Installation
         - Click on the link labelled 'Cimpl.py'. This will prompt a download
         of the Cimpl.py file.
 
+        - Once the download has finished, place the file in folder Python_Image_Filter
+
         Cimpl is now installed on your machine.
 
-    Before using this project, the project's files must be placed in the same directory
 
-        - Open Terminal and create a directory titled Python_Image_Folder in the home directory.
-        Input the following into the command line:
-            $ cd
-            $ mkdir Python_Image_Folder
+---
+Installation
 
-        - Place the following files inside of directory Python_Image_Filter:
-            - T121_interactive_ui.py
-            - T121_batch_ui.py
-            - T121_image_filters.py
-            - Cimpl.py
-
-    All of the required files have been properly installed and the project is now ready for use.
+    To use this application, Python 3.7.4 or later, the Pillow module, and the Cimpl module
+    must be installed.
 
 
+    Installing Python 3
+
+        Skip this step if you already have Python 3 installed.
+
+        On Mac:
+
+            - Install homebrew. To do this, open Terminal and paste into the command line:
+                $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+            - The following will install Python 3. Paste into the command line:
+                $ brew install python3
+
+            Python 3 is now installed on your Mac.
+
+        On Windows:
+
+            - Open a web browser and paste the following link:
+                https://www.python.org/downloads/windows/
+
+            - Click on the link labelled 'Download Windows x86-64 executable installer'. This will prompt
+            a .exe file download.
+
+            - Once the download has finished, run the file and follow the steps provided by the install
+            wizard.
+
+            Python 3 is now installed on your PC.
+
+
+    Installing Pillow
+
+        - Open Terminal and paste the following:
+            $ pip3 install Pillow
+
+        Pillow is now installed on your machine.
+
+
+    Installing Cimpl
+
+        - Open a web browser and go to cuLearn
+            https://culearn.carleton.ca
+
+        - Log in to the site using your credentials
+
+        - Go to the ECOR1051 course page by clicking on its corresponding link
+
+        - Click on the Milestone 1 tab
+
+        - Click on the link labelled 'P1 Task 4 - A folder containing Cimpl.py
+        and Approved Sample Images'. This will direct you to a new page with
+        several files.
+
+        - Click on the link labelled 'Cimpl.py'. This will prompt a download
+        of the Cimpl.py file.
+
+        - Once the download has finished, place the file in folder Python_Image_Filter
+
+
+    Installing the application files
+
+        - Create a folder in your home directory and name it 'Python_Image_Filter'.
+
+        - Place the Python scripts T121_image_filters.py, T121_interactive_ui.py,
+        T121_batch_ui.py, and Cimpl.py in directory 'Python_Image_Filter'.
+
+
+---
 Usage
------
 
     To use the text-based UI:
 
@@ -106,13 +165,14 @@ Usage
         to apply the corresponding filter into the image. An image with the
         corresponding filter will be displayed shortly after.
 
-        Edge Detect and Improved Edge Detect will prompt you to enter an integer before
-        applying the filter.
+        Certain filters, such as Edge Detect and Improved Edge Detect will prompt
+        you to enter an integer before applying the filter.
 
         - Close the displayed image to return to the menu.
 
         - To exit the program, when prompted by the menu, input:
             : Q
+
 
     To use the batch file-based UI:
 
@@ -146,11 +206,7 @@ Usage
             original_image.png batch_result.png X V P
 
         This batch command produces an image that had been passed through an extreme
-        contrast, a vertical flip, and a posterize filter, consecutively and can be found
-        in the project directory under batch_result.png.
-
-        There is no error control for improper image filenames and commands and the program
-        will crash if these are inputted in the textfile.
+        contrast, a vertical flip, and a posterize filter, consecutively.
 
         - Open Terminal and type the following to run the batch UI program:
             $ python3 T121_batch_ui.py
@@ -161,49 +217,17 @@ Usage
 
         One or more image files should appear in your directory shortly after.
 
-        There is no error control for improper .txt filenames and the program will crash
-        if this is inputted.
-
         - Edit batch_sample.txt by adding new lines of commands or changing existing
         ones to produce different results.
 
 
+---
 Credits
--------
-
-    Image filter functions from T121_image_filters.py by author:
-        Zakaria Ismail - combine, posterize, flip_horizontal
-        Ibrahim Kasim - green_channel, extreme_contrast, detect_edges
-        Himanshu Singh - red_channel, two_tone, three_tone, flip_vertical
-        Yanglong Liu - blue_channel, sepia, detect_edges_better
-
-    T121_interactive_ui.py - Ibrahim Kasim and Himanshu Singh
-
-    T121_batch_ui.py - Zakaria Ismail and Yanglong Liu
 
 
+
+---
 License
--------
 
-    MIT License
-
-    Copyright (c) 2020 Zakaria Ismail
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
+    Copyright 2020
 

@@ -1,4 +1,4 @@
-Python Image Filtering Project Version 1.0 02/04/2020
+FilterIt Version 1.0 02/04/2020
 
 Contact Information
 -------------------
@@ -39,8 +39,8 @@ Installation
     Built-in and external modules are used.
 
     External modules:
-        - Pillow
-        - Cimpl
+        - Pillow version 7.0.0 or later
+        - Cimpl version 1.04 or later
 
     Installing Pillow
 
@@ -71,12 +71,12 @@ Installation
 
     Before using this project, the project's files must be placed in the same directory
 
-        - Open Terminal and create a directory titled Python_Image_Folder in the home directory.
+        - Open Terminal and create a directory titled FilterIt in the home directory.
         Input the following into the command line:
             $ cd
-            $ mkdir Python_Image_Folder
+            $ mkdir FilterIt
 
-        - Place the following files inside of directory Python_Image_Filter:
+        - Place the following files inside of directory FilterIt:
             - T121_interactive_ui.py
             - T121_batch_ui.py
             - T121_image_filters.py
@@ -90,11 +90,11 @@ Usage
 
     To use the text-based UI:
 
-        - Place any image (.jpg, .png) in the Python_Image_Filter folder
+        - Place any image (.jpg, .png) in the FilterIt folder
 
         - Open Terminal and type the following into the command line to run the program:
             $ cd
-            $ cd Python_Image_Filter
+            $ cd FilterIt
             $ python3 T121_interactive_ui.py
 
         - A menu will prompt you to select an option. Input into the command line:
@@ -116,10 +116,10 @@ Usage
 
     To use the batch file-based UI:
 
-        - Place any image (.jpg, .png) in the Python_Image_Filter folder
+        - Place any image (.jpg, .png) in the FilterIt folder
 
         - Create a .txt file titled 'batch_sample.txt' and save it in the
-        Python_Image_Filter directory.
+        FilterIt directory.
 
         - To create an image filter command, enter in a newline the filename of an
         image file (.png, .jpg) inside of the same directory as T121_batch_ui.py,
@@ -127,7 +127,7 @@ Usage
         of letter commands, each separated by a space.
 
         - Open batch_sample.txt and enter, in a newline, the filename of an image
-        file (.png, .jpg) located in directory Python_Image_Filter, a filename to
+        file (.png, .jpg) located in directory FilterIt , a filename to
         save the produced result (.png, .jpg), and a series of letter commands, each
         separated by a space.
 
